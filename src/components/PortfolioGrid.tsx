@@ -166,7 +166,6 @@ const PortfolioGrid: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          role="list"
           aria-label="Portfolio projects"
         >
           {projects.map((project) => (

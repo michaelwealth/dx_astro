@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { brevoService, gtmService } from '../config/services';
 
 interface FormData {
   name: string;
@@ -23,23 +24,83 @@ const ContactForm: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
+    setError(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      // Send notification email to admin
+      const adminEmailContent = `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${formData.name}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Company:</strong> ${formData.company}</p>
+        <p><strong>Budget:</strong> ${formData.budget}</p>
+        <p><strong>Service Interested:</strong> ${formData.service}</p>
+        <p><strong>Message:</strong></p>
+        <p>${formData.message.replace(/\n/g, '<br>')}</p>
+      `;
+
+      const adminResult = await brevoService.sendEmail(
+        'hello@digitalxceeded.com',
+        `New Contact Form Submission from ${formData.name}`,
+        adminEmailContent,
+        formData.email
+      );
+
+      if (!adminResult.success) {
+        throw new Error(adminResult.error || 'Failed to send email');
+      }
+
+      // Send confirmation email to user
+      const userEmailContent = `
+        <h2>Thanks for reaching out!</h2>
+        <p>Hi ${formData.name},</p>
+        <p>We've received your message and our team will get back to you shortly. We're excited to discuss how we can help your business grow.</p>
+        <p>In the meantime, feel free to explore our portfolio and services.</p>
+        <p>Best regards,<br>Digital Xceeded Team</p>
+      `;
+
+      await brevoService.sendEmail(
+        formData.email,
+        'We received your message - Digital Xceeded',
+        userEmailContent
+      );
+
+      // Track form submission in GTM
+      gtmService.pushEvent('form_submit', {
+        'form_type': 'contact',
+        'service': formData.service,
+        'budget': formData.budget
+      });
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        budget: '',
+        service: '',
+        message: ''
+      });
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred while submitting the form';
+      setError(errorMessage);
+      console.error('Contact form error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -158,6 +219,15 @@ const ContactForm: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
+                {error && (
+                  <div className="form-error" role="alert">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M10 5V10M10 15H10.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    {error}
+                  </div>
+                )}
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="name">Name *</label>
@@ -406,6 +476,35 @@ const ContactForm: React.FC = () => {
           display: flex;
           flex-direction: column;
           gap: var(--space-lg);
+        }
+        
+        .form-error {
+          display: flex;
+          align-items: center;
+          gap: var(--space-md);
+          padding: var(--space-md) var(--space-lg);
+          background: #fee;
+          border: 1px solid #fcc;
+          border-radius: var(--radius-lg);
+          color: #c33;
+          font-size: 0.875rem;
+          animation: slideDown 0.3s ease;
+        }
+        
+        .form-error svg {
+          flex-shrink: 0;
+          color: #c33;
+        }
+        
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         
         .form-row {

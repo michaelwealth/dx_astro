@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import { getServicesConfig } from '../config/services';
 
 interface Props {
   title: string;
@@ -14,6 +16,7 @@ interface Props {
   keywords?: string[];
 }
 
+const config = getServicesConfig();
 const { 
   title, 
   description = "Digital Xceeded - Premium digital agency delivering integrated brand, platform, growth, and strategy solutions that drive measurable business outcomes.",
@@ -34,7 +37,26 @@ const imageURL = new URL(image, Astro.site || 'https://digitalxceeded.com').toSt
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
+    <metaGoogle Tag Manager -->
+    {config.googleTagManager.containerId && (
+      <>
+        <script is:inline define:vars={{ gtmId: config.googleTagManager.containerId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gtmId);
+        </script>
+        <script is:inline async define:vars={{ gtmId: config.googleTagManager.containerId }}>
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer',gtmId);
+        </script>
+      </>
+    )}
+    
+    <!--  name="generator" content={Astro.generator} />
     
     <!-- Primary Meta Tags -->
     <title>{title} | Digital Xceeded</title>
@@ -174,6 +196,9 @@ const imageURL = new URL(image, Astro.site || 'https://digitalxceeded.com').toSt
     </main>
     
     <Footer />
+    
+    <!-- Cookie Consent Banner -->
+    <CookieConsent />
     
     <!-- Accessibility Announcer for Screen Readers -->
     <div 

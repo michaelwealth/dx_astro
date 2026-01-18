@@ -151,20 +151,23 @@ const socialLinks = [
         <div class="footer-newsletter">
           <h3 class="footer-heading">Stay Updated</h3>
           <p>Get insights on digital strategy and growth delivered to your inbox.</p>
-          <form class="newsletter-form" action="#" method="POST">
+          <form id="newsletter-form" class="newsletter-form" method="POST">
             <div class="input-group">
               <input 
                 type="email" 
+                id="newsletter-email"
+                name="email"
                 placeholder="Your email" 
                 required 
                 aria-label="Email address"
               />
-              <button type="submit" class="btn-submit" aria-label="Subscribe">
+              <button type="submit" class="btn-submit" aria-label="Subscribe to newsletter">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
             </div>
+            <div id="newsletter-message" class="newsletter-message" role="alert" aria-live="polite"></div>
           </form>
         </div>
       </div>
@@ -515,5 +518,104 @@ const socialLinks = [
       flex-direction: column;
       text-align: center;
     }
+  }
+
+  .newsletter-message {
+    display: none;
+    font-size: 0.75rem;
+    padding: var(--space-sm) 0;
+    margin-top: var(--space-sm);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .newsletter-message.show {
+    display: block;
+  }
+
+  .newsletter-message.success {
+    color: #22c55e;
+  }
+
+  .newsletter-message.error {
+    color: #ef4444;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+
+<script>
+  import { sendyService, gtmService } from '../config/services';
+
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const emailInput = document.getElementById('newsletter-email') as HTMLInputElement;
+  const messageDiv = document.getElementById('newsletter-message') as HTMLDivElement;
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = emailInput.value.trim();
+      if (!email) {
+        showMessage('Please enter a valid email address', 'error');
+        return;
+      }
+
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = button.innerHTML;
+      button.disabled = true;
+      button.innerHTML = '<span class="spinner-small"></span>';
+
+      try {
+        const result = await sendyService.subscribe(email);
+
+        if (result.success) {
+          showMessage('Welcome! Check your email for updates.', 'success');
+          emailInput.value = '';
+
+          // Track newsletter signup in GTM
+          gtmService.pushEvent('newsletter_signup', {
+            'method': 'footer'
+          });
+
+          // Hide message after 4 seconds
+          setTimeout(() => {
+            messageDiv.classList.remove('show');
+          }, 4000);
+        } else {
+          showMessage(result.error || 'Something went wrong. Please try again.', 'error');
+        }
+      } catch (error) {
+        showMessage('Failed to subscribe. Please try again later.', 'error');
+        console.error('Newsletter subscription error:', error);
+      } finally {
+        button.disabled = false;
+        button.innerHTML = originalText;
+      }
+    });
+  }
+
+  function showMessage(text: string, type: 'success' | 'error'): void {
+    messageDiv.textContent = text;
+    messageDiv.className = `newsletter-message show ${type}`;
+  }
+</script>
+
+<style>
+  .spinner-small {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 </style>

@@ -182,7 +182,7 @@ const PortfolioGrid: React.FC = () => {
               style={{
                 '--card-color': project.color,
               } as React.CSSProperties}
-              role="listitem"
+
               aria-label={`${project.title} - ${project.client}. ${project.description}`}
             >
               <div className="card-image">

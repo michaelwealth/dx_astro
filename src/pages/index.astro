@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero';
+import ServicesGrid from '../components/ServicesGrid';
+import IntegratedApproach from '../components/IntegratedApproach';
+import PortfolioGrid from '../components/PortfolioGrid';
+import Testimonials from '../components/Testimonials';
+import ContactForm from '../components/ContactForm';
+---
+
+<Layout title="Build brands and drive growth through integrated digital experiences">
+  <Hero 
+    client:load
+    title="Build brands. Drive growth. Exceed expectations."
+    subtitle="We're an integrated digital agency that brings together strategy, design, technology, and growth expertise to deliver measurable outcomes."
+    cta={{
+      primary: { label: "Start Your Journey", href: "/contact" },
+      secondary: { label: "Explore Our Work", href: "/portfolio" }
+    }}
+  />
+  
+  <!-- Clients/Partners Logo Bar -->
+  <section class="clients-section">
+    <div class="container">
+      <p class="clients-label">Trusted by forward-thinking companies</p>
+      <div class="clients-logos">
+        <div class="logo-placeholder">TechVenture</div>
+        <div class="logo-placeholder">Luxe Lifestyle</div>
+        <div class="logo-placeholder">GreenPath</div>
+        <div class="logo-placeholder">FitLife Pro</div>
+        <div class="logo-placeholder">Scale Finance</div>
+        <div class="logo-placeholder">Nexus</div>
+      </div>
+    </div>
+  </section>
+  
+  <ServicesGrid client:visible />
+  
+  <IntegratedApproach client:visible />
+  
+  <PortfolioGrid client:visible />
+  
+  <Testimonials client:visible />
+  
+  <!-- Brief CTA Section -->
+  <section class="brief-cta">
+    <div class="container">
+      <div class="brief-cta-content reveal">
+        <h2>Your next breakthrough starts with a conversation</h2>
+        <p>Whether you're launching a new brand, reimagining your digital presence, or scaling your growth, we're ready to be your integrated partner.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Let's Talk
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Clients Section */
+  .clients-section {
+    padding: var(--space-3xl) 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-soft-gray);
+  }
+  
+  .clients-label {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .clients-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3xl);
+  }
+  
+  .logo-placeholder {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-warm-gray);
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+  }
+  
+  .logo-placeholder:hover {
+    opacity: 1;
+  }
+  
+  /* Brief CTA */
+  .brief-cta {
+    padding: var(--space-5xl) 0;
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+  }
+  
+  .brief-cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .brief-cta h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .brief-cta p {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .brief-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .brief-cta .btn svg {
+    transition: transform var(--transition-fast);
+  }
+  
+  .brief-cta .btn:hover svg {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 768px) {
+    .clients-logos {
+      gap: var(--space-xl);
+    }
+    
+    .logo-placeholder {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+
+const project = {
+  title: 'Mobile App Development',
+  client: 'FitLife Pro',
+  category: 'Digital Platform',
+  year: '2025',
+  duration: '10 months',
+  services: ['Product Strategy', 'UI/UX Design', 'iOS Development', 'Android Development', 'Backend API'],
+  heroImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1600&h=900&fit=crop&q=90',
+  description: 'FitLife Pro envisioned a fitness app that would use AI to deliver truly personalized workout experiences. We partnered with them from concept to launch, creating a native mobile experience that has achieved remarkable user adoption and industry recognition.',
+  challenge: 'The fitness app market is saturated with generic solutions. FitLife Pro\'s differentiation was in their AI algorithm that could adapt workouts in real-time based on user performance and feedback. The challenge was translating this complex technology into an intuitive user experience that felt personal, not robotic. Additionally, they needed to build trust with users sharing health data while maintaining the engagement levels necessary for a subscription model.',
+  solution: 'We started with extensive user research and competitive analysis to understand what makes fitness apps succeed or fail. The UX was designed around the concept of a "digital training partner"—an AI that learns and adapts but feels supportive and human. We built native apps for iOS and Android to ensure optimal performance, with a robust backend infrastructure capable of real-time data processing. The onboarding flow was carefully crafted to build trust progressively while gathering the data needed for personalization. Post-launch, we continued optimizing based on user behavior data.',
+  results: [
+    { label: 'App Downloads', value: '500K+', description: 'Downloads in first year' },
+    { label: 'User Retention', value: '78%', description: '30-day user retention rate' },
+    { label: 'App Store Rating', value: '4.8★', description: 'Average rating across platforms' },
+    { label: 'Subscription Rate', value: '23%', description: 'Free-to-paid conversion' }
+  ],
+  testimonial: {
+    quote: 'Digital Xceeded didn\'t just execute our vision—they elevated it. Their deep understanding of mobile UX and user psychology turned our AI technology into an experience users love.',
+    author: 'James Wilson',
+    role: 'Co-Founder, FitLife Pro'
+  },
+  gallery: [
+    'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=750&fit=crop'
+  ],
+  nextProject: {
+    title: 'Performance Marketing',
+    href: '/portfolio/scale-finance',
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop'
+  }
+};
+---
+
+<CaseStudyTemplate project={project} />

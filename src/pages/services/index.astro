@@ -1,0 +1,595 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    category: 'Brand & Experience',
+    description: 'Create lasting impressions that drive emotional connections and business growth.',
+    color: '#FF5757',
+    items: [
+      {
+        title: 'Branding & Design',
+        description: 'Positioning that commands market attention. We craft identities that resonate with your audience and differentiate you from competitors.',
+        href: '/services/branding-design',
+        icon: '✦'
+      },
+      {
+        title: 'UI/UX Design',
+        description: 'Interfaces that convert, not just look good. Research-driven design that reduces friction and improves user satisfaction.',
+        href: '/services/ui-ux-design',
+        icon: '◈'
+      },
+      {
+        title: 'Experiential Marketing',
+        description: 'Moments that move customers. Create immersive brand experiences that generate buzz and lasting connections.',
+        href: '/services/experiential-marketing',
+        icon: '◐'
+      },
+      {
+        title: 'Video Production',
+        description: 'Narrative that drives action. Compelling video content that tells your story and converts viewers into customers.',
+        href: '/services/video-production',
+        icon: '▶'
+      }
+    ]
+  },
+  {
+    category: 'Digital Platforms',
+    description: 'Build the digital infrastructure that powers your business forward.',
+    color: '#FF9800',
+    items: [
+      {
+        title: 'Web Development',
+        description: 'Fast, scalable, conversion-optimized. Modern web experiences built with performance and growth in mind.',
+        href: '/services/web-development',
+        icon: '⬡'
+      },
+      {
+        title: 'App Development',
+        description: 'Seamless digital products that solve real problems. Native and cross-platform solutions for iOS and Android.',
+        href: '/services/app-development',
+        icon: '◎'
+      },
+      {
+        title: 'Platform Support',
+        description: 'Reliable infrastructure for growth. Ongoing maintenance, optimization, and support for your digital assets.',
+        href: '/services/platform-support',
+        icon: '⚙'
+      },
+      {
+        title: 'AI & Tools Integration',
+        description: 'Smarter operations, faster execution. Leverage AI and automation to streamline workflows and enhance capabilities.',
+        href: '/services/ai-integration',
+        icon: '◇'
+      }
+    ]
+  },
+  {
+    category: 'Growth & Media',
+    description: 'Accelerate your reach and drive measurable business outcomes.',
+    color: '#FF6B4D',
+    items: [
+      {
+        title: 'Search Engine Marketing',
+        description: 'Visibility where decisions are made. Strategic paid search campaigns that drive qualified traffic and conversions.',
+        href: '/services/sem',
+        icon: '◇'
+      },
+      {
+        title: 'Paid Social',
+        description: 'Audience precision, measurable ROI. Data-driven social campaigns across Meta, LinkedIn, TikTok, and more.',
+        href: '/services/paid-social',
+        icon: '◆'
+      },
+      {
+        title: 'Display & Retargeting',
+        description: 'Stay top-of-mind through the buying journey. Strategic display advertising that re-engages and converts.',
+        href: '/services/display-retargeting',
+        icon: '▣'
+      },
+      {
+        title: 'Media Relations',
+        description: 'Earned trust that amplifies paid efforts. Build credibility through strategic PR and media placements.',
+        href: '/services/media-relations',
+        icon: '◉'
+      }
+    ]
+  },
+  {
+    category: 'Strategy & Advisory',
+    description: 'Strategic clarity that aligns digital initiatives with business objectives.',
+    color: '#E68A00',
+    items: [
+      {
+        title: 'Digital Strategy',
+        description: 'Clarity on what matters, roadmap for execution. Strategic frameworks that align digital initiatives with business goals.',
+        href: '/services/digital-strategy',
+        icon: '▲'
+      },
+      {
+        title: 'Consulting & Advisory',
+        description: 'Think partner, not vendor. Senior expertise embedded in your team to accelerate transformation initiatives.',
+        href: '/services/consulting',
+        icon: '●'
+      },
+      {
+        title: 'Training Programs',
+        description: 'Build capability in-house, scale faster. Customized training programs that empower your teams.',
+        href: '/services/training',
+        icon: '◐'
+      },
+      {
+        title: 'Audits & Reviews',
+        description: 'Diagnose gaps, unlock hidden opportunity. Comprehensive audits that reveal optimization potential.',
+        href: '/services/audits',
+        icon: '◑'
+      }
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Services" 
+  description="Integrated digital services spanning brand, platform, growth, and strategy. Discover how our coordinated expertise delivers measurable business outcomes."
+>
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="page-label">Our Services</span>
+        <h1 class="page-title">
+          Four pillars. <span class="text-gradient">Infinite possibilities.</span>
+        </h1>
+        <p class="page-subtitle">
+          Most agencies operate in silos. We don't. Our integrated approach means every 
+          discipline works together—strategy informing brand, brand enabling platform, 
+          platform powering growth, and growth validating strategy.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Animated Background -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+      <div class="bg-grid"></div>
+    </div>
+  </section>
+  
+  <!-- Services Navigation -->
+  <nav class="services-nav" aria-label="Service categories">
+    <div class="container">
+      <div class="nav-links">
+        {services.map((category) => (
+          <a href={`#${category.category.toLowerCase().replace(/\s+/g, '-')}`} class="nav-link">
+            <span class="nav-dot" style={`background: ${category.color}`}></span>
+            {category.category}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Services Categories -->
+  {services.map((category, categoryIndex) => (
+    <section 
+      class="service-category" 
+      id={category.category.toLowerCase().replace(/\s+/g, '-')}
+      style={`--category-color: ${category.color}`}
+    >
+      <div class="container">
+        <div class="category-header reveal">
+          <div class="category-label">
+            <span class="category-number">0{categoryIndex + 1}</span>
+            <h2 class="category-title">{category.category}</h2>
+          </div>
+          <p class="category-description">{category.description}</p>
+        </div>
+        
+        <div class="services-grid">
+          {category.items.map((service, index) => (
+            <a href={service.href} class="service-card reveal" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="card-icon">
+                <span>{service.icon}</span>
+              </div>
+              <h3 class="card-title">{service.title}</h3>
+              <p class="card-description">{service.description}</p>
+              <div class="card-cta">
+                <span>Learn more</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+  
+  <!-- Integration CTA -->
+  <section class="integration-cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <span class="cta-label">The Integrated Advantage</span>
+        <h2 class="cta-title">
+          Why choose between specialists when you can have <span class="text-gradient">integrated expertise?</span>
+        </h2>
+        <p class="cta-description">
+          A fragmented approach costs more and delivers less. Our integrated model means 
+          one team, one strategy, real accountability—and better outcomes.
+        </p>
+        <div class="cta-actions">
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Start a Conversation
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/portfolio" class="btn btn-secondary btn-lg">
+            See Our Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .services-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-4xl);
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-cream) 100%);
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .page-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .page-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .page-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--color-text-light);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+  
+  .bg-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(255, 87, 87, 0.3) 0%, rgba(255, 152, 0, 0.2) 100%);
+    top: -200px;
+    right: -100px;
+  }
+  
+  .bg-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.2) 0%, rgba(255, 87, 87, 0.15) 100%);
+    bottom: -100px;
+    left: -150px;
+  }
+  
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  }
+  
+  /* Services Nav */
+  .services-nav {
+    position: sticky;
+    top: var(--header-height);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-soft-gray);
+    z-index: 100;
+    padding: var(--space-md) 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+  }
+  
+  .nav-link:hover {
+    color: var(--color-text);
+  }
+  
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  /* Service Categories */
+  .service-category {
+    padding: var(--space-5xl) 0;
+  }
+  
+  .service-category:nth-child(odd) {
+    background: var(--color-cream);
+  }
+  
+  .service-category:nth-child(even) {
+    background: var(--color-white);
+  }
+  
+  .category-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: end;
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .category-label {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+  }
+  
+  .category-number {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--category-color);
+  }
+  
+  .category-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+  }
+  
+  .category-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 500px;
+    justify-self: end;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-2xl);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-soft-gray);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+  
+  .service-category:nth-child(even) .service-card {
+    background: var(--color-cream);
+  }
+  
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--category-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--category-color);
+  }
+  
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 87, 87, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+    border-radius: var(--radius-lg);
+    font-size: 1.5rem;
+    color: var(--category-color);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+    flex: 1;
+  }
+  
+  .card-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  
+  .card-cta svg {
+    transition: transform var(--transition-fast);
+  }
+  
+  .service-card:hover .card-cta svg {
+    transform: translateX(4px);
+  }
+  
+  /* Integration CTA */
+  .integration-cta {
+    padding: var(--space-5xl) 0;
+    background: var(--color-text);
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .integration-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 87, 87, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .cta-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+  
+  .cta-actions .btn-secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+  }
+  
+  .cta-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  @media (max-width: 1024px) {
+    .category-header {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+    
+    .category-description {
+      justify-self: start;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+      justify-content: flex-start;
+      padding: 0 var(--space-md);
+    }
+    
+    .cta-actions {
+      flex-direction: column;
+    }
+    
+    .cta-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

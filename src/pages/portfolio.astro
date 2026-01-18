@@ -1,0 +1,470 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PortfolioGrid from '../components/PortfolioGrid';
+---
+
+<Layout 
+  title="Portfolio" 
+  description="Explore our work. Real outcomes from our integrated approach across brand, platform, and growth."
+>
+  <!-- Hero -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="page-label">Our Work</span>
+        <h1 class="page-title">
+          Results that speak <span class="text-gradient">louder</span>
+        </h1>
+        <p class="page-subtitle">
+          Every project tells a story of collaboration, strategy, and measurable impact. 
+          See how our integrated approach delivers outcomes that matter.
+        </p>
+      </div>
+    </div>
+    <div class="hero-bg" aria-hidden="true">
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+    </div>
+  </section>
+  
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-value">50+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">4.8x</span>
+          <span class="stat-label">Average ROI</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">95%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">12</span>
+          <span class="stat-label">Industries Served</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <PortfolioGrid client:visible />
+  
+  <!-- Featured Case Study -->
+  <section class="featured-case">
+    <div class="container">
+      <div class="case-grid">
+        <div class="case-content reveal">
+          <span class="case-label">Featured Case Study</span>
+          <h2 class="case-title">TechVenture Corp: Complete Digital Transformation</h2>
+          <p class="case-description">
+            When TechVenture needed to reposition for enterprise markets, they came to us 
+            for an integrated transformation. We delivered a new brand identity, rebuilt 
+            their digital platform, and launched a multi-channel growth campaign.
+          </p>
+          <div class="case-metrics">
+            <div class="metric">
+              <span class="metric-value">+147%</span>
+              <span class="metric-label">Revenue Growth</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">+89%</span>
+              <span class="metric-label">User Engagement</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">3.2x</span>
+              <span class="metric-label">Lead Quality</span>
+            </div>
+          </div>
+          <a href="/portfolio/techventure" class="btn btn-primary btn-lg">
+            Read Full Case Study
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="case-image reveal">
+          <img 
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" 
+            alt="TechVenture Corp project showcase"
+            loading="lazy"
+          />
+          <div class="image-overlay">
+            <div class="overlay-tags">
+              <span>Brand Strategy</span>
+              <span>Web Development</span>
+              <span>Growth Marketing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Industries -->
+  <section class="industries-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Industries We Serve</span>
+        <h2 class="section-title">Expertise across sectors</h2>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-card reveal">
+          <div class="industry-icon">🏢</div>
+          <h3>Enterprise & B2B</h3>
+          <p>Complex sales cycles, stakeholder management, and thought leadership</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">🛒</div>
+          <h3>E-commerce & Retail</h3>
+          <p>Conversion optimization, customer experience, and omnichannel strategy</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">💳</div>
+          <h3>Fintech & Finance</h3>
+          <p>Trust-building, compliance-aware marketing, and user acquisition</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">🏥</div>
+          <h3>Healthcare & Wellness</h3>
+          <p>Patient engagement, provider communications, and regulatory navigation</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">⚡</div>
+          <h3>Energy & Sustainability</h3>
+          <p>Brand positioning, stakeholder engagement, and impact storytelling</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">🚀</div>
+          <h3>Startups & Scale-ups</h3>
+          <p>Brand foundation, rapid growth, and market entry strategy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="portfolio-cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Ready to create your success story?</h2>
+        <p>Let's discuss how our integrated approach can deliver results for your business.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Start a Conversation
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .portfolio-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-3xl);
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-cream) 100%);
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .page-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .page-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+  
+  .bg-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(255, 87, 87, 0.3) 0%, rgba(255, 152, 0, 0.2) 100%);
+    top: -200px;
+    right: -100px;
+  }
+  
+  .bg-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 152, 0, 0.2);
+    bottom: -150px;
+    left: -100px;
+  }
+  
+  /* Stats Bar */
+  .stats-bar {
+    padding: var(--space-2xl) 0;
+    background: var(--color-text);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  
+  .stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: var(--space-xs);
+  }
+  
+  /* Featured Case */
+  .featured-case {
+    padding: var(--space-5xl) 0;
+    background: var(--color-cream);
+  }
+  
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+  
+  .case-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .case-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .case-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .case-metrics {
+    display: flex;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .metric {
+    text-align: left;
+  }
+  
+  .metric-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+  
+  .metric-label {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+  }
+  
+  .case-image {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+  }
+  
+  .case-image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-xl);
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  }
+  
+  .overlay-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  .overlay-tags span {
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+  }
+  
+  /* Industries */
+  .industries-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-white);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+  }
+  
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .industry-card {
+    padding: var(--space-xl);
+    background: var(--color-cream);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+  }
+  
+  .industry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .industry-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  .industry-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .industry-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  /* CTA */
+  .portfolio-cta {
+    padding: var(--space-5xl) 0;
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta-content p {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+    font-size: 1.125rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .case-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .case-image {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .industries-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .case-metrics {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+  }
+</style>

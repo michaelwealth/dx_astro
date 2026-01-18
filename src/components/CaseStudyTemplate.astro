@@ -1,0 +1,758 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+  project: {
+    title: string;
+    client: string;
+    category: string;
+    year: string;
+    duration: string;
+    services: string[];
+    heroImage: string;
+    description: string;
+    challenge: string;
+    solution: string;
+    results: { label: string; value: string; description?: string }[];
+    testimonial?: {
+      quote: string;
+      author: string;
+      role: string;
+    };
+    gallery: string[];
+    nextProject?: {
+      title: string;
+      href: string;
+      image: string;
+    };
+  };
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Digital Xceeded Case Study`} description={project.description}>
+  <main class="case-study">
+    <!-- Hero Section -->
+    <section class="case-hero">
+      <div class="case-hero-content">
+        <div class="case-hero-meta">
+          <a href="/portfolio" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16 10H4M4 10L10 4M4 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to Portfolio
+          </a>
+          <span class="case-category">{project.category}</span>
+        </div>
+        
+        <h1 class="case-title">{project.title}</h1>
+        <p class="case-client">For {project.client}</p>
+        
+        <div class="case-info-grid">
+          <div class="info-item">
+            <span class="info-label">Year</span>
+            <span class="info-value">{project.year}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Duration</span>
+            <span class="info-value">{project.duration}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Services</span>
+            <span class="info-value">{project.services.join(', ')}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-hero-image">
+        <img src={project.heroImage} alt={project.title} />
+        <div class="image-overlay"></div>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-section case-overview">
+      <div class="container">
+        <div class="overview-grid">
+          <div class="overview-content">
+            <h2 class="section-title">Overview</h2>
+            <p class="overview-text">{project.description}</p>
+          </div>
+          
+          <div class="results-preview">
+            {project.results.slice(0, 3).map((result) => (
+              <div class="result-item">
+                <span class="result-value">{result.value}</span>
+                <span class="result-label">{result.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="case-section case-challenge">
+      <div class="container">
+        <div class="two-column">
+          <div class="column-label">
+            <span>01</span>
+            <h3>The Challenge</h3>
+          </div>
+          <div class="column-content">
+            <p>{project.challenge}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="case-gallery">
+      <div class="gallery-scroll">
+        {project.gallery.map((image, index) => (
+          <div class="gallery-item" style={`animation-delay: ${index * 0.1}s`}>
+            <img src={image} alt={`${project.title} - Image ${index + 1}`} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="case-section case-solution">
+      <div class="container">
+        <div class="two-column">
+          <div class="column-label">
+            <span>02</span>
+            <h3>Our Solution</h3>
+          </div>
+          <div class="column-content">
+            <p>{project.solution}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="case-section case-results">
+      <div class="container">
+        <div class="results-header">
+          <span class="section-label">03</span>
+          <h2>The Results</h2>
+          <p>Measurable outcomes that exceeded expectations.</p>
+        </div>
+        
+        <div class="results-grid">
+          {project.results.map((result) => (
+            <div class="result-card">
+              <span class="result-value">{result.value}</span>
+              <span class="result-label">{result.label}</span>
+              {result.description && <p class="result-desc">{result.description}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    {project.testimonial && (
+      <section class="case-section case-testimonial">
+        <div class="container">
+          <div class="testimonial-card">
+            <svg class="quote-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M14 24H6C6 14 12 8 22 8V14C17 14 14 18 14 24ZM36 24H28C28 14 34 8 44 8V14C39 14 36 18 36 24Z" fill="currentColor" opacity="0.2"/>
+            </svg>
+            <blockquote>
+              <p>{project.testimonial.quote}</p>
+            </blockquote>
+            <div class="testimonial-author">
+              <span class="author-name">{project.testimonial.author}</span>
+              <span class="author-role">{project.testimonial.role}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Next Project Section -->
+    {project.nextProject && (
+      <section class="case-next">
+        <a href={project.nextProject.href} class="next-project-link">
+          <div class="next-content">
+            <span class="next-label">Next Project</span>
+            <h3 class="next-title">{project.nextProject.title}</h3>
+            <span class="next-cta">
+              View Case Study
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="next-image">
+            <img src={project.nextProject.image} alt={project.nextProject.title} />
+          </div>
+        </a>
+      </section>
+    )}
+
+    <!-- CTA Section -->
+    <section class="case-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to achieve similar results?</h2>
+          <p>Let's discuss how we can help transform your digital presence.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Start Your Project
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .case-study {
+    padding-top: var(--header-height);
+  }
+
+  /* Hero Section */
+  .case-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--space-4xl) var(--space-xl);
+    overflow: hidden;
+  }
+
+  .case-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .case-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-hero-image .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  .case-hero-content {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .case-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: white;
+  }
+
+  .back-link:hover svg {
+    transform: translateX(-4px);
+  }
+
+  .back-link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .case-category {
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .case-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    max-width: 900px;
+  }
+
+  .case-client {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .case-info-grid {
+    display: flex;
+    gap: var(--space-3xl);
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .info-value {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /* Case Sections */
+  .case-section {
+    padding: var(--space-5xl) var(--space-xl);
+  }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  /* Overview */
+  .case-overview {
+    background: var(--color-cream);
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .overview-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .results-preview {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding: var(--space-2xl);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .result-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .result-label {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-top: var(--space-xs);
+  }
+
+  /* Two Column Layout */
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-4xl);
+  }
+
+  .column-label {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-xl));
+  }
+
+  .column-label span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-soft-gray);
+    line-height: 1;
+    margin-bottom: var(--space-md);
+  }
+
+  .column-label h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .column-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  /* Gallery */
+  .case-gallery {
+    padding: var(--space-4xl) 0;
+    overflow: hidden;
+    background: var(--color-white);
+  }
+
+  .gallery-scroll {
+    display: flex;
+    gap: var(--space-lg);
+    padding: 0 var(--space-xl);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gallery-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-item {
+    flex-shrink: 0;
+    width: 70vw;
+    max-width: 900px;
+    scroll-snap-align: center;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+  }
+
+  /* Results */
+  .case-results {
+    background: var(--color-text);
+    color: white;
+  }
+
+  .results-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-4xl);
+  }
+
+  .results-header .section-label {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.1);
+  }
+
+  .results-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .results-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .result-card {
+    padding: var(--space-2xl);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .result-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .result-card .result-value {
+    font-size: 3.5rem;
+  }
+
+  .result-card .result-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--space-sm);
+  }
+
+  .result-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: var(--space-md);
+  }
+
+  /* Testimonial */
+  .case-testimonial {
+    background: var(--color-cream);
+  }
+
+  .testimonial-card {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-4xl);
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+
+  .quote-icon {
+    color: var(--color-primary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .testimonial-card blockquote p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    margin-top: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .author-name {
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .author-role {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+  }
+
+  /* Next Project */
+  .case-next {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+  }
+
+  .next-project-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+  }
+
+  .next-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .next-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+    transition: filter 0.5s ease;
+  }
+
+  .next-project-link:hover .next-image img {
+    filter: brightness(0.3);
+  }
+
+  .next-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: var(--space-4xl);
+  }
+
+  .next-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-md);
+  }
+
+  .next-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: var(--space-xl);
+  }
+
+  .next-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 600;
+    padding: var(--space-md) var(--space-xl);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+  }
+
+  .next-project-link:hover .next-cta {
+    background: white;
+    color: var(--color-text);
+    border-color: white;
+  }
+
+  .next-cta svg {
+    transition: transform 0.3s ease;
+  }
+
+  .next-project-link:hover .next-cta svg {
+    transform: translateX(4px);
+  }
+
+  /* CTA Section */
+  .case-cta {
+    padding: var(--space-5xl) var(--space-xl);
+    background: var(--color-white);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-content p {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cta-content .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .cta-content .btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-content .btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .overview-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .two-column {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .column-label {
+      position: static;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .case-hero {
+      min-height: 70vh;
+    }
+
+    .case-info-grid {
+      gap: var(--space-xl);
+    }
+
+    .gallery-item {
+      width: 85vw;
+    }
+  }
+</style>

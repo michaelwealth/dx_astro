@@ -1,0 +1,40 @@
+---
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+
+const project = {
+  title: 'Performance Marketing Transformation',
+  client: 'Scale Finance',
+  category: 'Growth & Media',
+  year: '2025',
+  duration: 'Ongoing',
+  services: ['SEM', 'Paid Social', 'Display & Retargeting', 'Analytics', 'Marketing Automation'],
+  heroImage: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=90',
+  description: 'Scale Finance, a fast-growing fintech company, had proven product-market fit but was struggling to scale customer acquisition efficiently. We implemented a full-funnel performance marketing strategy that transformed their growth trajectory while maintaining sustainable unit economics.',
+  challenge: 'Scale Finance was spending heavily on digital advertising but couldn\'t justify the customer acquisition costs. Their campaigns were siloed, attribution was unclear, and they were competing against well-funded competitors in expensive keywords. They needed to either find a path to efficient growth or would have to significantly cut their marketing budget.',
+  solution: 'We began with a comprehensive audit of their existing campaigns, analytics infrastructure, and customer journey. The findings revealed significant wasted spend and missed opportunities. We rebuilt their campaigns from the ground up with a focus on audience segmentation and creative testing. A new attribution model gave visibility into the true customer journey. We implemented sophisticated retargeting sequences that nurtured prospects through the consideration phase, and established automated reporting that enabled rapid optimization. The result was a scalable growth engine.',
+  results: [
+    { label: 'ROAS', value: '4.2x', description: 'Return on ad spend improvement' },
+    { label: 'CAC Reduction', value: '-38%', description: 'Lower customer acquisition cost' },
+    { label: 'Lead Volume', value: '+215%', description: 'Increase in qualified leads' },
+    { label: 'LTV:CAC Ratio', value: '5.1:1', description: 'Improved unit economics' }
+  ],
+  testimonial: {
+    quote: 'Before Digital Xceeded, we were flying blind with our marketing spend. Now we have a predictable, scalable growth engine that the board actually gets excited about.',
+    author: 'Rachel Kim',
+    role: 'VP Marketing, Scale Finance'
+  },
+  gallery: [
+    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=750&fit=crop'
+  ],
+  nextProject: {
+    title: 'Corporate Website Redesign',
+    href: '/portfolio/nexus',
+    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=800&fit=crop'
+  }
+};
+---
+
+<CaseStudyTemplate project={project} />

@@ -1,0 +1,40 @@
+---
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+
+const project = {
+  title: 'Brand Launch Campaign',
+  client: 'GreenPath Energy',
+  category: 'Brand & Media',
+  year: '2024',
+  duration: '4 months',
+  services: ['Brand Strategy', 'Visual Identity', 'Video Production', 'Paid Social', 'PR'],
+  heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=900&fit=crop&q=90',
+  description: 'GreenPath Energy emerged from stealth mode with ambitious goals: become a recognized leader in sustainable energy solutions. We created their brand from scratch and launched a multi-channel campaign that established market presence and generated a pipeline of qualified leads within the first quarter.',
+  challenge: 'As a new entrant in the competitive clean energy space, GreenPath needed to quickly establish credibility and differentiate from established players. They had innovative technology but no brand presence, no market awareness, and a limited window to capture attention before competitors caught up. The challenge was to create a brand that communicated both innovation and trustworthiness—essential for enterprise energy buyers.',
+  solution: 'We developed a brand strategy positioning GreenPath as the "intelligent choice" for forward-thinking organizations. The visual identity combined clean, modern aesthetics with warm, approachable elements that humanized the technology story. We produced a hero video showcasing their impact potential and created a content library for ongoing campaigns. The launch strategy combined PR outreach, thought leadership content, and precision-targeted paid social campaigns across LinkedIn and industry publications.',
+  results: [
+    { label: 'Brand Awareness', value: '+312%', description: 'Increase in unaided brand recall' },
+    { label: 'Lead Generation', value: '2.4K+', description: 'Qualified leads in first quarter' },
+    { label: 'Media Coverage', value: '45+', description: 'Press mentions and features' },
+    { label: 'Social Following', value: '28K', description: 'Followers gained across platforms' }
+  ],
+  testimonial: {
+    quote: 'Launching a new brand is daunting, but Digital Xceeded made it feel strategic and achievable. Their integrated approach meant our brand, content, and campaigns all reinforced each other from day one.',
+    author: 'Dr. Amanda Foster',
+    role: 'Founder & CEO, GreenPath Energy'
+  },
+  gallery: [
+    'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&h=750&fit=crop'
+  ],
+  nextProject: {
+    title: 'Mobile App Development',
+    href: '/portfolio/fitlife',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop'
+  }
+};
+---
+
+<CaseStudyTemplate project={project} />

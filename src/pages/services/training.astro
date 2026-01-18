@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Training & Workshops" 
+  description="Build internal digital capabilities with expert-led training. From marketing to technology, we help teams level up."
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/services">Services</a>
+        <span>/</span>
+        <span>Training</span>
+      </nav>
+      
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="service-category">Strategy & Advisory</span>
+          <h1>Training & Workshops</h1>
+          <p class="hero-description">
+            Build internal digital capabilities with expert-led training. From marketing 
+            to technology, we help teams develop the skills they need to succeed.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary btn-lg">Book Training</a>
+            <a href="/portfolio" class="btn btn-secondary btn-lg">See Programs</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-card">
+            <div class="visual-icon">🎓</div>
+            <div class="visual-stats">
+              <div class="stat">
+                <span class="stat-value">500+</span>
+                <span class="stat-label">Trained</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">4.9/5</span>
+                <span class="stat-label">Rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Training Programs</span>
+        <h2>Skill development</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">📈</div>
+          <h3>Digital Marketing</h3>
+          <p>SEO, SEM, social media, content marketing, and analytics fundamentals.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎨</div>
+          <h3>Design Thinking</h3>
+          <p>User-centered design methodology, prototyping, and innovation processes.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📊</div>
+          <h3>Analytics & Data</h3>
+          <p>Data interpretation, dashboard building, and insights-driven decision making.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🤖</div>
+          <h3>AI for Business</h3>
+          <p>Practical AI applications, prompt engineering, and responsible AI use.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎯</div>
+          <h3>Strategy & Planning</h3>
+          <p>Strategic thinking, planning frameworks, and execution excellence.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">👥</div>
+          <h3>Leadership Development</h3>
+          <p>Digital leadership, change management, and team development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="format-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Formats</span>
+        <h2>Flexible delivery options</h2>
+      </div>
+      <div class="format-grid">
+        <div class="format-card reveal">
+          <h3>Half-Day Workshop</h3>
+          <p>Focused sessions on specific topics. Perfect for introducing new concepts or skills.</p>
+          <span class="format-duration">4 hours</span>
+        </div>
+        <div class="format-card reveal">
+          <h3>Full-Day Intensive</h3>
+          <p>Deep dives with hands-on exercises. Ideal for comprehensive skill building.</p>
+          <span class="format-duration">8 hours</span>
+        </div>
+        <div class="format-card reveal">
+          <h3>Multi-Day Program</h3>
+          <p>Extended learning journeys with practice time. Best for transformation programs.</p>
+          <span class="format-duration">2-5 days</span>
+        </div>
+        <div class="format-card reveal">
+          <h3>Coaching Series</h3>
+          <p>Ongoing support with regular sessions. Great for sustained capability building.</p>
+          <span class="format-duration">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="outcomes-section">
+    <div class="container">
+      <div class="outcomes-grid">
+        <div class="outcomes-content reveal">
+          <span class="section-label">Outcomes</span>
+          <h2>Skills that stick</h2>
+          <p>Our training programs deliver practical skills that participants can apply immediately.</p>
+          <ul class="outcomes-list">
+            <li>Hands-on, practical learning</li>
+            <li>Expert facilitators</li>
+            <li>Custom content for your context</li>
+            <li>Post-training resources</li>
+          </ul>
+        </div>
+        <div class="outcomes-stats reveal">
+          <div class="stat-card">
+            <span class="stat-value">500+</span>
+            <span class="stat-label">People Trained</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">4.9/5</span>
+            <span class="stat-label">Avg Satisfaction Rating</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">92%</span>
+            <span class="stat-label">Skills Application Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Ready to upskill your team?</h2>
+        <p>Let's discuss a training program tailored to your organization's needs.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">Get Started</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-4xl);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+  }
+  
+  .breadcrumb { display: flex; align-items: center; gap: var(--space-sm); font-size: 0.875rem; margin-bottom: var(--space-2xl); }
+  .breadcrumb a { color: var(--color-text-light); }
+  .breadcrumb a:hover { color: var(--color-primary); }
+  .breadcrumb span:not(:last-child) { color: var(--color-soft-gray); }
+  .breadcrumb span:last-child { color: var(--color-text); font-weight: 500; }
+  
+  .hero-content { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-4xl); align-items: center; }
+  .service-category { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-primary); margin-bottom: var(--space-md); }
+  .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: var(--space-lg); }
+  .hero-description { font-size: 1.25rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--space-xl); }
+  .hero-actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+  
+  .visual-card { background: var(--color-white); border-radius: var(--radius-2xl); padding: var(--space-2xl); box-shadow: var(--shadow-lg); text-align: center; }
+  .visual-icon { font-size: 4rem; margin-bottom: var(--space-xl); }
+  .visual-stats { display: flex; gap: var(--space-xl); justify-content: center; }
+  .stat { text-align: center; }
+  .stat-value { display: block; font-size: 2rem; font-weight: 800; color: var(--color-primary); }
+  .stat-label { font-size: 0.875rem; color: var(--color-text-light); }
+  
+  .features-section, .format-section { padding: var(--space-5xl) 0; }
+  .features-section { background: var(--color-white); }
+  .format-section { background: var(--color-cream); }
+  
+  .section-header { text-align: center; margin-bottom: var(--space-3xl); }
+  .section-label { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-primary); margin-bottom: var(--space-md); }
+  .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; }
+  
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+  .feature-card { padding: var(--space-xl); background: var(--color-cream); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .feature-icon { font-size: 2rem; margin-bottom: var(--space-md); }
+  .feature-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-sm); }
+  .feature-card p { color: var(--color-text-light); line-height: 1.6; }
+  
+  .format-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl); }
+  .format-card { padding: var(--space-xl); background: var(--color-white); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .format-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .format-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-sm); }
+  .format-card p { color: var(--color-text-light); line-height: 1.6; margin-bottom: var(--space-md); }
+  .format-duration { display: inline-block; padding: var(--space-xs) var(--space-md); background: rgba(255, 87, 87, 0.1); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; color: var(--color-primary); }
+  
+  .outcomes-section { padding: var(--space-5xl) 0; background: var(--color-text); color: var(--color-white); }
+  .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
+  .outcomes-section .section-label { color: var(--color-primary); }
+  .outcomes-content h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: var(--space-lg); }
+  .outcomes-content p { color: rgba(255,255,255,0.7); margin-bottom: var(--space-xl); font-size: 1.125rem; }
+  .outcomes-list { list-style: none; }
+  .outcomes-list li { padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: rgba(255,255,255,0.8); }
+  .outcomes-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
+  .outcomes-stats { display: grid; gap: var(--space-lg); }
+  .stat-card { padding: var(--space-xl); background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,0.1); }
+  .stat-card .stat-value { font-size: 2.5rem; font-weight: 800; background: var(--gradient-warm); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .stat-card .stat-label { display: block; margin-top: var(--space-sm); color: rgba(255,255,255,0.6); }
+  
+  .cta-section { padding: var(--space-5xl) 0; background: var(--color-cream); text-align: center; }
+  .cta-content h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: var(--space-md); }
+  .cta-content p { color: var(--color-text-light); font-size: 1.125rem; margin-bottom: var(--space-xl); max-width: 600px; margin-inline: auto; }
+  
+  @media (max-width: 1024px) {
+    .hero-content, .outcomes-grid { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .format-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid, .format-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+  }
+</style>

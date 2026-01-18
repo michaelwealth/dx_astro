@@ -1,0 +1,40 @@
+---
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+
+const project = {
+  title: 'E-commerce Platform Redesign',
+  client: 'Luxe Lifestyle',
+  category: 'Platform & Growth',
+  year: '2025',
+  duration: '6 months',
+  services: ['UI/UX Design', 'E-commerce Development', 'Paid Media', 'Conversion Optimization'],
+  heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop&q=90',
+  description: 'Luxe Lifestyle, a premium home goods retailer, was struggling to translate their in-store luxury experience to digital. We redesigned their e-commerce platform from the ground up, creating an immersive shopping experience that drove record-breaking conversion rates and average order values.',
+  challenge: 'Despite strong brand recognition and loyal customers in their physical stores, Luxe Lifestyle\'s online presence was underperforming. Their website felt dated, the mobile experience was frustrating, and checkout abandonment rates were nearly 80%. They needed a digital experience that matched the premium quality of their products and the personalized service of their stores.',
+  solution: 'Our approach started with extensive user research—shadowing in-store customers and conducting usability testing on the existing site. We identified key friction points and opportunities to create emotional connections through design. The new platform features immersive product photography, a curated discovery experience, and a streamlined checkout process. We also implemented personalization algorithms and integrated their loyalty program. Post-launch, we ran aggressive paid media campaigns with retargeting strategies to maximize the platform\'s potential.',
+  results: [
+    { label: 'Conversion Rate', value: '+62%', description: 'Increase in website conversion rate' },
+    { label: 'Average Order Value', value: '+34%', description: 'Growth in average transaction value' },
+    { label: 'Cart Abandonment', value: '-45%', description: 'Reduction in checkout abandonment' },
+    { label: 'Mobile Revenue', value: '+128%', description: 'Increase in mobile commerce sales' }
+  ],
+  testimonial: {
+    quote: 'They understood that we weren\'t just selling products—we\'re selling a lifestyle. The new platform captures the essence of our brand and has transformed our digital business.',
+    author: 'Michael Torres',
+    role: 'CMO, Luxe Lifestyle'
+  },
+  gallery: [
+    'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1200&h=750&fit=crop'
+  ],
+  nextProject: {
+    title: 'Brand Launch Campaign',
+    href: '/portfolio/greenpath',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop'
+  }
+};
+---
+
+<CaseStudyTemplate project={project} />

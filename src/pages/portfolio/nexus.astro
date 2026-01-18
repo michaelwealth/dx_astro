@@ -1,0 +1,40 @@
+---
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+
+const project = {
+  title: 'Corporate Website & Digital Ecosystem',
+  client: 'Nexus Innovations',
+  category: 'Platform & Brand',
+  year: '2024',
+  duration: '5 months',
+  services: ['Web Development', 'Content Strategy', 'SEO', 'CMS Implementation', 'Multi-language'],
+  heroImage: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1600&h=900&fit=crop&q=90',
+  description: 'Nexus Innovations, a global engineering consultancy, needed a digital presence that reflected their technical excellence while being accessible to diverse international audiences. We delivered an enterprise-grade website platform that has become a key driver of their business development efforts.',
+  challenge: 'Nexus operated across 12 countries with different service offerings, regulatory requirements, and cultural nuances. Their existing website was a fragmented collection of regional microsites with inconsistent branding and no unified content strategy. They needed a platform that could scale globally while allowing regional customization, all while improving their search visibility in multiple markets.',
+  solution: 'We architected a headless CMS solution that separates content management from presentation, enabling regional teams to manage their content while maintaining brand consistency. The multi-language implementation goes beyond simple translation—each regional site is culturally adapted while maintaining the core Nexus story. A comprehensive SEO strategy was built into the architecture from day one, with technical foundations and content frameworks designed for international search success. The result is a platform that serves as the hub for their global digital ecosystem.',
+  results: [
+    { label: 'Organic Traffic', value: '+215%', description: 'Increase in organic search traffic' },
+    { label: 'Lead Quality', value: '+67%', description: 'Improvement in lead quality score' },
+    { label: 'Time on Site', value: '+89%', description: 'Increase in average session duration' },
+    { label: 'Global Reach', value: '12', description: 'Countries with localized presence' }
+  ],
+  testimonial: {
+    quote: 'Managing a global digital presence used to be a nightmare. Now our regional teams can move fast while maintaining the brand standards that make Nexus recognizable worldwide.',
+    author: 'Henrik Mueller',
+    role: 'Global Head of Marketing, Nexus Innovations'
+  },
+  gallery: [
+    'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&h=750&fit=crop'
+  ],
+  nextProject: {
+    title: 'Complete Digital Transformation',
+    href: '/portfolio/techventure',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop'
+  }
+};
+---
+
+<CaseStudyTemplate project={project} />

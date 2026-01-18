@@ -1,0 +1,247 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string[];
+}
+
+const { 
+  title, 
+  description = "Digital Xceeded - Premium digital agency delivering integrated brand, platform, growth, and strategy solutions that drive measurable business outcomes.",
+  image = "/og-image.jpg",
+  type = "website",
+  publishedTime,
+  modifiedTime,
+  author,
+  keywords = ["digital agency", "branding", "web development", "digital strategy", "UI/UX design", "performance marketing"]
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://digitalxceeded.com');
+const imageURL = new URL(image, Astro.site || 'https://digitalxceeded.com').toString();
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title} | Digital Xceeded</title>
+    <meta name="title" content={`${title} | Digital Xceeded`} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="author" content={author || 'Digital Xceeded'} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Digital Xceeded`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Digital Xceeded" />
+    <meta property="og:locale" content="en_US" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL.toString()} />
+    <meta name="twitter:title" content={`${title} | Digital Xceeded`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:site" content="@digitalxceeded" />
+    <meta name="twitter:creator" content="@digitalxceeded" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#FF5757" />
+    <meta name="msapplication-TileColor" content="#FF5757" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    
+    <!-- Prevent FOUC for dark mode -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme') || 
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    
+    <!-- Schema.org structured data - Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://digitalxceeded.com/#organization",
+      "name": "Digital Xceeded",
+      "url": "https://digitalxceeded.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digitalxceeded.com/logo.svg",
+        "width": "180",
+        "height": "40"
+      },
+      "description": "Premium digital agency delivering integrated brand, platform, growth, and strategy solutions that drive measurable business outcomes.",
+      "foundingDate": "2020",
+      "sameAs": [
+        "https://linkedin.com/company/digitalxceeded",
+        "https://twitter.com/digitalxceeded",
+        "https://instagram.com/digitalxceeded"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-123-4567",
+        "contactType": "customer service",
+        "availableLanguage": ["English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      }
+    })} />
+    
+    <!-- Schema.org structured data - WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://digitalxceeded.com/#website",
+      "url": "https://digitalxceeded.com",
+      "name": "Digital Xceeded",
+      "description": description,
+      "publisher": {
+        "@id": "https://digitalxceeded.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://digitalxceeded.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+    
+    <!-- Schema.org structured data - WebPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": canonicalURL.toString(),
+      "url": canonicalURL.toString(),
+      "name": `${title} | Digital Xceeded`,
+      "description": description,
+      "isPartOf": {
+        "@id": "https://digitalxceeded.com/#website"
+      },
+      "about": {
+        "@id": "https://digitalxceeded.com/#organization"
+      },
+      "inLanguage": "en-US"
+    })} />
+  </head>
+  <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Subtle grain texture overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+    
+    <Header />
+    
+    <main id="main-content" role="main" tabindex="-1">
+      <slot />
+    </main>
+    
+    <Footer />
+    
+    <!-- Accessibility Announcer for Screen Readers -->
+    <div 
+      id="a11y-announcer" 
+      role="status" 
+      aria-live="polite" 
+      aria-atomic="true" 
+      class="sr-only"
+    ></div>
+    
+    <!-- Scroll reveal and accessibility script -->
+    <script>
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          if (href) {
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // Set focus for accessibility
+              (target as HTMLElement).focus({ preventScroll: true });
+            }
+          }
+        });
+      });
+      
+      // Respect reduced motion preference
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.style.setProperty('--transition-fast', '0ms');
+        document.documentElement.style.setProperty('--transition-base', '0ms');
+        document.documentElement.style.setProperty('--transition-slow', '0ms');
+      }
+      
+      // Announce page title changes for screen readers
+      function announcePageChange(message: string) {
+        const announcer = document.getElementById('a11y-announcer');
+        if (announcer) {
+          announcer.textContent = message;
+          setTimeout(() => { announcer.textContent = ''; }, 1000);
+        }
+      }
+      
+      // Focus management for single page navigation
+      document.addEventListener('astro:page-load', () => {
+        const main = document.getElementById('main-content');
+        if (main) {
+          main.focus({ preventScroll: true });
+        }
+      });
+    </script>
+  </body>
+</html>

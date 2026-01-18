@@ -1,0 +1,40 @@
+---
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+
+const project = {
+  title: 'Complete Digital Transformation',
+  client: 'TechVenture Corp',
+  category: 'Strategy & Platform',
+  year: '2025',
+  duration: '8 months',
+  services: ['Digital Strategy', 'Brand Identity', 'Web Development', 'Growth Marketing'],
+  heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=90',
+  description: 'TechVenture Corp, a fast-growing B2B SaaS company, needed to evolve from a startup brand to an enterprise-ready market leader. We delivered an end-to-end digital transformation that repositioned their brand, rebuilt their digital platform, and implemented a growth strategy that exceeded all targets.',
+  challenge: 'TechVenture had grown rapidly through word-of-mouth and founder-led sales, but their digital presence didn\'t match their ambitions. Their website was outdated, their brand felt inconsistent across touchpoints, and their marketing efforts were fragmented. They needed a unified digital strategy that would support their goal of 3x revenue growth while positioning them for enterprise sales.',
+  solution: 'We began with a comprehensive digital audit and stakeholder workshops to understand TechVenture\'s unique value proposition and competitive landscape. From there, we developed a new brand identity that communicated trust and innovation—essential for enterprise buyers. The new website was built on a modern tech stack with conversion optimization at its core, featuring case studies, product tours, and a resource center that established thought leadership. We then implemented an integrated growth marketing strategy spanning content, paid media, and marketing automation.',
+  results: [
+    { label: 'Revenue Growth', value: '+147%', description: 'Year-over-year increase in annual recurring revenue' },
+    { label: 'User Engagement', value: '+89%', description: 'Increase in website time-on-site and page depth' },
+    { label: 'Lead Quality', value: '+156%', description: 'Improvement in marketing qualified leads' },
+    { label: 'Sales Cycle', value: '-34%', description: 'Reduction in average deal closing time' }
+  ],
+  testimonial: {
+    quote: 'Digital Xceeded didn\'t just build us a website—they transformed how we think about our entire digital presence. The integrated approach meant everything worked together seamlessly, and the results speak for themselves.',
+    author: 'Sarah Chen',
+    role: 'CEO, TechVenture Corp'
+  },
+  gallery: [
+    'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=750&fit=crop',
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=750&fit=crop'
+  ],
+  nextProject: {
+    title: 'E-commerce Platform Redesign',
+    href: '/portfolio/luxe-lifestyle',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop'
+  }
+};
+---
+
+<CaseStudyTemplate project={project} />

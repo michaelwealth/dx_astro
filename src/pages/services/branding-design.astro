@@ -1,0 +1,610 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Service data - in a real app, this would come from a CMS or data file
+const service = {
+  title: 'Branding & Design',
+  category: 'Brand & Experience',
+  description: 'Positioning that commands market attention',
+  longDescription: 'We craft brand identities that resonate emotionally with your audience while driving measurable business outcomes. Our strategic approach to branding goes beyond logos and color palettes—we build comprehensive brand systems that differentiate you in the market.',
+  icon: '✦',
+  color: '#FF5757',
+  features: [
+    {
+      title: 'Brand Strategy',
+      description: 'Deep market research, competitive analysis, and positioning that gives your brand a unique voice and clear market position.'
+    },
+    {
+      title: 'Visual Identity',
+      description: 'Logo design, typography, color systems, and visual language that captures your brand essence and resonates with your audience.'
+    },
+    {
+      title: 'Brand Guidelines',
+      description: 'Comprehensive documentation that ensures brand consistency across all touchpoints and empowers your team.'
+    },
+    {
+      title: 'Brand Activation',
+      description: 'Launch strategies and campaigns that introduce your brand to the world with maximum impact.'
+    }
+  ],
+  process: [
+    { step: '01', title: 'Discovery', description: 'We immerse ourselves in your business, audience, and competitive landscape.' },
+    { step: '02', title: 'Strategy', description: 'Define positioning, messaging architecture, and brand personality.' },
+    { step: '03', title: 'Creation', description: 'Design and develop your visual identity and brand system.' },
+    { step: '04', title: 'Activation', description: 'Launch your brand with strategic rollout and implementation support.' }
+  ],
+  outcomes: [
+    'Increased brand recognition and recall',
+    'Stronger emotional connection with customers',
+    'Clear differentiation from competitors',
+    'Consistent brand experience across touchpoints',
+    'Foundation for long-term growth'
+  ],
+  relatedServices: [
+    { title: 'UI/UX Design', href: '/services/ui-ux-design' },
+    { title: 'Web Development', href: '/services/web-development' },
+    { title: 'Digital Strategy', href: '/services/digital-strategy' }
+  ]
+};
+---
+
+<Layout 
+  title={service.title}
+  description={service.description}
+>
+  <!-- Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="hero-content">
+        <a href="/services" class="breadcrumb">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          All Services
+        </a>
+        <span class="service-category">{service.category}</span>
+        <h1 class="service-title">{service.title}</h1>
+        <p class="service-subtitle">{service.longDescription}</p>
+        <div class="hero-cta">
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Discuss Your Brand
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/portfolio" class="btn btn-secondary btn-lg">View Our Work</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-element">
+          <span class="icon-large">{service.icon}</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg" aria-hidden="true">
+      <div class="bg-orb"></div>
+    </div>
+  </section>
+  
+  <!-- Features Grid -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What We Deliver</span>
+        <h2 class="section-title">Comprehensive branding services</h2>
+      </div>
+      <div class="features-grid">
+        {service.features.map((feature, index) => (
+          <div class="feature-card reveal" style={`animation-delay: ${index * 0.1}s`}>
+            <span class="feature-number">0{index + 1}</span>
+            <h3 class="feature-title">{feature.title}</h3>
+            <p class="feature-description">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Process</span>
+        <h2 class="section-title">How we bring brands to life</h2>
+      </div>
+      <div class="process-timeline">
+        {service.process.map((step, index) => (
+          <div class="process-step reveal" style={`animation-delay: ${index * 0.15}s`}>
+            <div class="step-indicator">
+              <span class="step-number">{step.step}</span>
+              {index < service.process.length - 1 && <div class="step-line"></div>}
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">{step.title}</h3>
+              <p class="step-description">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Outcomes Section -->
+  <section class="outcomes-section">
+    <div class="container">
+      <div class="outcomes-grid">
+        <div class="outcomes-content reveal">
+          <span class="section-label">Business Impact</span>
+          <h2 class="section-title">Outcomes you can expect</h2>
+          <ul class="outcomes-list">
+            {service.outcomes.map(outcome => (
+              <li>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="var(--color-primary)" stroke-width="2"/>
+                  <path d="M8 12L11 15L16 9" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {outcome}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="outcomes-visual reveal">
+          <div class="stat-cards">
+            <div class="stat-card">
+              <span class="stat-value">300%</span>
+              <span class="stat-label">Average brand recognition increase</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">85%</span>
+              <span class="stat-label">Client satisfaction rate</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">50+</span>
+              <span class="stat-label">Brands launched</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Related Services -->
+  <section class="related-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Integrated Services</span>
+        <h2 class="section-title">Better together</h2>
+        <p class="section-description">Branding is just the beginning. Combine with these services for maximum impact.</p>
+      </div>
+      <div class="related-grid">
+        {service.relatedServices.map(related => (
+          <a href={related.href} class="related-card reveal">
+            <h3>{related.title}</h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Ready to transform your brand?</h2>
+        <p>Let's discuss how strategic branding can drive your business forward.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Start a Conversation
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .service-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-4xl);
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-cream) 100%);
+    overflow: hidden;
+  }
+  
+  .service-hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+  
+  .breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+    transition: color var(--transition-fast);
+  }
+  
+  .breadcrumb:hover {
+    color: var(--color-primary);
+  }
+  
+  .service-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .service-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .service-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+  
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .visual-element {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 87, 87, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .visual-element::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border: 1px dashed var(--color-soft-gray);
+    border-radius: 50%;
+    animation: spin 30s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .icon-large {
+    font-size: 6rem;
+    color: var(--color-primary);
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .bg-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 87, 87, 0.1) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+  }
+  
+  /* Features */
+  .features-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-white);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+  }
+  
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-top: var(--space-md);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .feature-card {
+    padding: var(--space-2xl);
+    background: var(--color-cream);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .feature-number {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .feature-description {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  /* Process */
+  .process-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-cream);
+  }
+  
+  .process-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-2xl);
+  }
+  
+  .step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .step-number {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-warm);
+    color: white;
+    font-family: var(--font-display);
+    font-weight: 700;
+    border-radius: 50%;
+  }
+  
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: var(--color-soft-gray);
+    margin-top: var(--space-md);
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .step-description {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  /* Outcomes */
+  .outcomes-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-white);
+  }
+  
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+  
+  .outcomes-list {
+    list-style: none;
+    margin-top: var(--space-xl);
+  }
+  
+  .outcomes-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    font-size: 1.0625rem;
+    border-bottom: 1px solid var(--color-soft-gray);
+  }
+  
+  .outcomes-list li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .stat-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .stat-card {
+    padding: var(--space-xl);
+    background: var(--color-cream);
+    border-radius: var(--radius-xl);
+    text-align: center;
+  }
+  
+  .stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .stat-label {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+  }
+  
+  /* Related */
+  .related-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-cream);
+  }
+  
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .related-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-xl);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+  }
+  
+  .related-card:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .related-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  .related-card svg {
+    color: var(--color-primary);
+    transition: transform var(--transition-fast);
+  }
+  
+  .related-card:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* CTA */
+  .service-cta {
+    padding: var(--space-5xl) 0;
+    background: var(--color-text);
+    color: var(--color-white);
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta-content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-xl);
+  }
+  
+  @media (max-width: 1024px) {
+    .service-hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    
+    .hero-visual {
+      display: none;
+    }
+    
+    .hero-cta {
+      justify-content: center;
+    }
+    
+    .outcomes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-cta {
+      flex-direction: column;
+    }
+    
+    .hero-cta .btn {
+      width: 100%;
+    }
+  }
+</style>

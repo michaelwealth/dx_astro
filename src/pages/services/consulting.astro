@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Consulting & Advisory" 
+  description="Expert consulting that helps you navigate digital complexity. Strategic guidance from experienced practitioners."
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/services">Services</a>
+        <span>/</span>
+        <span>Consulting</span>
+      </nav>
+      
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="service-category">Strategy & Advisory</span>
+          <h1>Consulting & Advisory</h1>
+          <p class="hero-description">
+            Expert consulting that helps you navigate digital complexity. Strategic guidance 
+            from experienced practitioners who understand both strategy and execution.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary btn-lg">Get Expert Advice</a>
+            <a href="/portfolio" class="btn btn-secondary btn-lg">See Case Studies</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-card">
+            <div class="visual-icon">💼</div>
+            <div class="visual-stats">
+              <div class="stat">
+                <span class="stat-value">20+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">$50M+</span>
+                <span class="stat-label">Value Created</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Advisory Services</span>
+        <h2>Strategic expertise</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎯</div>
+          <h3>Digital Transformation</h3>
+          <p>Navigate complex digital change with experienced guidance and proven frameworks.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📊</div>
+          <h3>Marketing Effectiveness</h3>
+          <p>Optimize your marketing mix, improve measurement, and increase ROI.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">⚙️</div>
+          <h3>Technology Selection</h3>
+          <p>Platform evaluation, vendor selection, and implementation planning.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">👥</div>
+          <h3>Team Development</h3>
+          <p>Organizational design, capability building, and talent strategy.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🔄</div>
+          <h3>Process Optimization</h3>
+          <p>Workflow improvement, automation opportunities, and operational efficiency.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📈</div>
+          <h3>Growth Strategy</h3>
+          <p>Market expansion, channel strategy, and scalable growth planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="engagement-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Engagement Models</span>
+        <h2>Flexible advisory options</h2>
+      </div>
+      <div class="engagement-grid">
+        <div class="engagement-card reveal">
+          <h3>Strategic Workshop</h3>
+          <p>Intensive facilitated sessions to tackle specific challenges or opportunities. Perfect for kickstarting initiatives or breaking through roadblocks.</p>
+          <span class="engagement-duration">1-3 days</span>
+        </div>
+        <div class="engagement-card reveal">
+          <h3>Consulting Project</h3>
+          <p>Defined-scope engagements with clear deliverables. Ideal for assessments, strategy development, or implementation guidance.</p>
+          <span class="engagement-duration">4-12 weeks</span>
+        </div>
+        <div class="engagement-card reveal">
+          <h3>Ongoing Advisory</h3>
+          <p>Regular strategic guidance and support. Best for organizations navigating continuous change or building internal capabilities.</p>
+          <span class="engagement-duration">Ongoing retainer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="outcomes-section">
+    <div class="container">
+      <div class="outcomes-grid">
+        <div class="outcomes-content reveal">
+          <span class="section-label">Outcomes</span>
+          <h2>Advice that works</h2>
+          <p>Our consulting delivers practical recommendations backed by deep experience.</p>
+          <ul class="outcomes-list">
+            <li>Clear strategic direction</li>
+            <li>Actionable recommendations</li>
+            <li>Reduced risk and uncertainty</li>
+            <li>Accelerated execution</li>
+          </ul>
+        </div>
+        <div class="outcomes-stats reveal">
+          <div class="stat-card">
+            <span class="stat-value">20+</span>
+            <span class="stat-label">Years Combined Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">$50M+</span>
+            <span class="stat-label">Client Value Created</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">95%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Need expert guidance?</h2>
+        <p>Let's discuss how our consulting can help you navigate your digital challenges.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">Schedule a Call</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-4xl);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+  }
+  
+  .breadcrumb { display: flex; align-items: center; gap: var(--space-sm); font-size: 0.875rem; margin-bottom: var(--space-2xl); }
+  .breadcrumb a { color: var(--color-text-light); }
+  .breadcrumb a:hover { color: var(--color-primary); }
+  .breadcrumb span:not(:last-child) { color: var(--color-soft-gray); }
+  .breadcrumb span:last-child { color: var(--color-text); font-weight: 500; }
+  
+  .hero-content { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-4xl); align-items: center; }
+  .service-category { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-primary); margin-bottom: var(--space-md); }
+  .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: var(--space-lg); }
+  .hero-description { font-size: 1.25rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--space-xl); }
+  .hero-actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+  
+  .visual-card { background: var(--color-white); border-radius: var(--radius-2xl); padding: var(--space-2xl); box-shadow: var(--shadow-lg); text-align: center; }
+  .visual-icon { font-size: 4rem; margin-bottom: var(--space-xl); }
+  .visual-stats { display: flex; gap: var(--space-xl); justify-content: center; }
+  .stat { text-align: center; }
+  .stat-value { display: block; font-size: 2rem; font-weight: 800; color: var(--color-primary); }
+  .stat-label { font-size: 0.875rem; color: var(--color-text-light); }
+  
+  .features-section, .engagement-section { padding: var(--space-5xl) 0; }
+  .features-section { background: var(--color-white); }
+  .engagement-section { background: var(--color-cream); }
+  
+  .section-header { text-align: center; margin-bottom: var(--space-3xl); }
+  .section-label { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-primary); margin-bottom: var(--space-md); }
+  .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; }
+  
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+  .feature-card { padding: var(--space-xl); background: var(--color-cream); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .feature-icon { font-size: 2rem; margin-bottom: var(--space-md); }
+  .feature-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-sm); }
+  .feature-card p { color: var(--color-text-light); line-height: 1.6; }
+  
+  .engagement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+  .engagement-card { padding: var(--space-2xl); background: var(--color-white); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .engagement-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .engagement-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-md); }
+  .engagement-card p { color: var(--color-text-light); line-height: 1.6; margin-bottom: var(--space-lg); }
+  .engagement-duration { display: inline-block; padding: var(--space-xs) var(--space-md); background: rgba(255, 87, 87, 0.1); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; color: var(--color-primary); }
+  
+  .outcomes-section { padding: var(--space-5xl) 0; background: var(--color-text); color: var(--color-white); }
+  .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
+  .outcomes-section .section-label { color: var(--color-primary); }
+  .outcomes-content h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: var(--space-lg); }
+  .outcomes-content p { color: rgba(255,255,255,0.7); margin-bottom: var(--space-xl); font-size: 1.125rem; }
+  .outcomes-list { list-style: none; }
+  .outcomes-list li { padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: rgba(255,255,255,0.8); }
+  .outcomes-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
+  .outcomes-stats { display: grid; gap: var(--space-lg); }
+  .stat-card { padding: var(--space-xl); background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,0.1); }
+  .stat-card .stat-value { font-size: 2.5rem; font-weight: 800; background: var(--gradient-warm); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .stat-card .stat-label { display: block; margin-top: var(--space-sm); color: rgba(255,255,255,0.6); }
+  
+  .cta-section { padding: var(--space-5xl) 0; background: var(--color-cream); text-align: center; }
+  .cta-content h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: var(--space-md); }
+  .cta-content p { color: var(--color-text-light); font-size: 1.125rem; margin-bottom: var(--space-xl); max-width: 600px; margin-inline: auto; }
+  
+  @media (max-width: 1024px) {
+    .hero-content, .outcomes-grid { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+    .features-grid, .engagement-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid, .engagement-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+  }
+</style>

@@ -170,8 +170,13 @@ const currentPath = Astro.url.pathname;
                 <div class="mobile-submenu">
                   {serviceItems.map((category) => (
                     <div class="mobile-submenu-category">
-                      <span class="mobile-category-title">{category.category}</span>
-                      <ul>
+                      <button class="mobile-category-toggle" aria-expanded="false">
+                        {category.category}
+                        <svg class="dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                      <ul class="mobile-category-items">
                         {category.items.map((subItem) => (
                           <li>
                             <a href={subItem.href}>{subItem.label}</a>
@@ -297,7 +302,7 @@ const currentPath = Astro.url.pathname;
     font-family: var(--font-display);
     font-size: 0.9375rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: #1a1a1a;
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
   }
@@ -374,12 +379,12 @@ const currentPath = Astro.url.pathname;
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: #1a1a1a;
   }
   
   .mega-menu-subtitle {
     font-size: 0.875rem;
-    color: var(--color-text-light);
+    color: #666666;
     margin-top: var(--space-xs);
   }
   
@@ -410,7 +415,7 @@ const currentPath = Astro.url.pathname;
   .mega-menu-link {
     display: block;
     font-size: 0.9375rem;
-    color: var(--color-text);
+    color: #1a1a1a;
     padding: var(--space-xs) 0;
     transition: all var(--transition-fast);
   }
@@ -540,12 +545,11 @@ const currentPath = Astro.url.pathname;
   
   /* Mobile Menu */
   .mobile-menu {
-    position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--color-surface);
+    background: #f8f6f3;
     padding: var(--space-xl);
     opacity: 0;
     visibility: hidden;
@@ -553,7 +557,11 @@ const currentPath = Astro.url.pathname;
     transition: all var(--transition-base);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    z-index: 9999;
+    z-index: 999;
+  }
+  
+  [data-theme="dark"] .mobile-menu {
+    background: #1a1a1c;
   }
   
   .mobile-menu[aria-hidden="false"] {
@@ -579,13 +587,18 @@ const currentPath = Astro.url.pathname;
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: #1a1a1a;
     background: transparent;
     border: none;
     border-bottom: none;
     cursor: pointer;
     text-align: left;
     text-decoration: none;
+  }
+  
+  [data-theme="dark"] .mobile-nav-link,
+  [data-theme="dark"] .mobile-nav-toggle {
+    color: #ffffff;
   }
   
   .mobile-submenu {
@@ -602,7 +615,7 @@ const currentPath = Astro.url.pathname;
   }
   
   .mobile-submenu-category {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-sm);
   }
   
   .mobile-category-title {
@@ -615,6 +628,46 @@ const currentPath = Astro.url.pathname;
     margin-bottom: var(--space-sm);
   }
   
+  .mobile-category-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-sm) 0;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .mobile-category-toggle .dropdown-icon {
+    transition: transform var(--transition-fast);
+    opacity: 0.6;
+  }
+  
+  .mobile-category-toggle[aria-expanded="true"] .dropdown-icon {
+    transform: rotate(180deg);
+  }
+  
+  .mobile-category-items {
+    display: none;
+    list-style: none;
+    padding-left: var(--space-md);
+    padding-bottom: var(--space-sm);
+  }
+  
+  .mobile-category-toggle[aria-expanded="true"] + .mobile-category-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
   .mobile-submenu ul {
     list-style: none;
     display: flex;
@@ -625,9 +678,13 @@ const currentPath = Astro.url.pathname;
   .mobile-submenu a {
     display: block;
     padding: var(--space-xs) 0;
-    font-size: 1rem;
-    color: var(--color-text-light);
+    font-size: 0.875rem;
+    color: #666666;
     text-decoration: none;
+  }
+  
+  [data-theme="dark"] .mobile-submenu a {
+    color: rgba(255, 255, 255, 0.7);
   }
   
   .mobile-submenu a:hover {
@@ -694,6 +751,14 @@ const currentPath = Astro.url.pathname;
   
   // Mobile submenu toggle
   document.querySelectorAll('.mobile-nav-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+    });
+  });
+  
+  // Mobile category toggle (nested dropdowns)
+  document.querySelectorAll('.mobile-category-toggle').forEach(toggle => {
     toggle.addEventListener('click', () => {
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isExpanded));

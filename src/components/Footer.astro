@@ -1,25 +1,20 @@
 ---
 import logoWhite from '../assets/logos/Digtal Xceeded Logo white.png';
 
+interface Props {
+  hideCta?: boolean;
+}
+
+const { hideCta = false } = Astro.props;
+
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
-  services: [
-    { label: 'Branding & Design', href: '/services/branding-design' },
-    { label: 'Web Development', href: '/services/web-development' },
-    { label: 'Digital Strategy', href: '/services/digital-strategy' },
-    { label: 'Paid Media', href: '/services/paid-social' },
-    { label: 'UI/UX Design', href: '/services/ui-ux-design' },
-  ],
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Portfolio', href: '/portfolio' },
     { label: 'Insights', href: '/insights' },
     { label: 'Contact', href: '/contact' },
-  ],
-  resources: [
-    { label: 'Blog', href: '/insights' },
-    { label: 'All Services', href: '/services' },
   ],
 };
 
@@ -44,37 +39,39 @@ const socialLinks = [
 
 <footer class="footer">
   <!-- CTA Section -->
-  <section class="footer-cta">
-    <div class="container">
-      <div class="cta-content">
-        <div class="cta-text">
-          <span class="cta-eyebrow">Ready to Elevate?</span>
-          <h2 class="cta-title">Let's build something <span class="text-gradient">extraordinary</span> together</h2>
-          <p class="cta-subtitle">From strategy to execution, we're your integrated partner for digital growth.</p>
+  {!hideCta && (
+    <section class="footer-cta">
+      <div class="container">
+        <div class="cta-content">
+          <div class="cta-text">
+            <span class="cta-eyebrow">Ready to Elevate?</span>
+            <h2 class="cta-title">Let's build something <span class="text-gradient">extraordinary</span> together</h2>
+            <p class="cta-subtitle">From strategy to execution, we're your integrated partner for digital growth.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="/contact" class="btn btn-primary btn-lg">
+              Start a Conversation
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/portfolio" class="btn btn-secondary btn-lg">
+              View Our Work
+            </a>
+          </div>
         </div>
-        <div class="cta-actions">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Start a Conversation
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="/portfolio" class="btn btn-secondary btn-lg">
-            View Our Work
-          </a>
+        
+        <!-- Decorative Elements -->
+        <div class="cta-decoration" aria-hidden="true">
+          <div class="cta-circle cta-circle-1"></div>
+          <div class="cta-circle cta-circle-2"></div>
+          <div class="cta-lines">
+            <span></span><span></span><span></span>
+          </div>
         </div>
       </div>
-      
-      <!-- Decorative Elements -->
-      <div class="cta-decoration" aria-hidden="true">
-        <div class="cta-circle cta-circle-1"></div>
-        <div class="cta-circle cta-circle-2"></div>
-        <div class="cta-lines">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  )}
   
   <!-- Main Footer -->
   <div class="footer-main">
@@ -88,6 +85,42 @@ const socialLinks = [
           <p class="footer-tagline">
             Integrated digital expertise that drives measurable growth. Strategy, brand, platform, and growth—working together.
           </p>
+        </div>
+        
+        <!-- Links Column -->
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3 class="footer-heading">Company</h3>
+            <ul class="footer-list">
+              {footerLinks.company.map(link => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Newsletter + Social -->
+        <div class="footer-newsletter">
+          <h3 class="footer-heading">Stay Updated</h3>
+          <p>Get insights on digital strategy and growth delivered to your inbox.</p>
+          <form id="newsletter-form" class="newsletter-form" method="POST">
+            <div class="input-group">
+              <input 
+                type="email" 
+                id="newsletter-email"
+                name="email"
+                placeholder="Your email" 
+                required 
+                aria-label="Email address"
+              />
+              <button type="submit" class="btn-submit" aria-label="Subscribe to newsletter">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div id="newsletter-message" class="newsletter-message" role="alert" aria-live="polite"></div>
+          </form>
           <div class="footer-social">
             {socialLinks.map(social => (
               <a 
@@ -116,60 +149,6 @@ const socialLinks = [
             ))}
           </div>
         </div>
-        
-        <!-- Links Columns -->
-        <div class="footer-links">
-          <div class="footer-column">
-            <h3 class="footer-heading">Services</h3>
-            <ul class="footer-list">
-              {footerLinks.services.map(link => (
-                <li><a href={link.href}>{link.label}</a></li>
-              ))}
-            </ul>
-          </div>
-          
-          <div class="footer-column">
-            <h3 class="footer-heading">Company</h3>
-            <ul class="footer-list">
-              {footerLinks.company.map(link => (
-                <li><a href={link.href}>{link.label}</a></li>
-              ))}
-            </ul>
-          </div>
-          
-          <div class="footer-column">
-            <h3 class="footer-heading">Resources</h3>
-            <ul class="footer-list">
-              {footerLinks.resources.map(link => (
-                <li><a href={link.href}>{link.label}</a></li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-          <h3 class="footer-heading">Stay Updated</h3>
-          <p>Get insights on digital strategy and growth delivered to your inbox.</p>
-          <form id="newsletter-form" class="newsletter-form" method="POST">
-            <div class="input-group">
-              <input 
-                type="email" 
-                id="newsletter-email"
-                name="email"
-                placeholder="Your email" 
-                required 
-                aria-label="Email address"
-              />
-              <button type="submit" class="btn-submit" aria-label="Subscribe to newsletter">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-            <div id="newsletter-message" class="newsletter-message" role="alert" aria-live="polite"></div>
-          </form>
-        </div>
       </div>
     </div>
   </div>
@@ -192,8 +171,8 @@ const socialLinks = [
 
 <style>
   .footer {
-    background: var(--color-text);
-    color: var(--color-white);
+    background: #1a1a1a;
+    color: #ffffff;
     position: relative;
     overflow: hidden;
   }
@@ -307,12 +286,25 @@ const socialLinks = [
   .footer-main {
     padding: var(--space-4xl) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+  
+  .footer-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
   }
   
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr 1.5fr;
     gap: var(--space-4xl);
+    align-items: start;
   }
   
   .footer-logo img {
@@ -354,9 +346,8 @@ const socialLinks = [
   }
   
   .footer-links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
   }
   
   .footer-heading {
@@ -367,6 +358,19 @@ const socialLinks = [
     letter-spacing: 0.1em;
     color: #FFFFFF;
     margin-bottom: var(--space-lg);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 2px;
   }
   
   .footer-list {
@@ -387,6 +391,13 @@ const socialLinks = [
   .footer-list a:hover {
     color: #FFFFFF;
     transform: translateX(4px);
+  }
+  
+  .footer-newsletter {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
   
   .footer-newsletter p {
@@ -507,11 +518,12 @@ const socialLinks = [
     }
     
     .footer-links {
-      grid-template-columns: 1fr 1fr;
+      order: 2;
     }
     
     .footer-newsletter {
       grid-column: auto;
+      order: 3;
     }
     
     .footer-bottom-content {

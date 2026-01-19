@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 <Layout 
   title="Web Development" 
   description="Fast, scalable, secure websites and web applications built with modern technology. From marketing sites to complex platforms."
+  hideFooterCta={true}
 >
   <section class="service-hero">
     <div class="container">
@@ -31,7 +32,13 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         <div class="hero-visual">
           <div class="visual-card">
-            <div class="visual-icon">💻</div>
+            <div class="visual-icon">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
             <div class="visual-stats">
               <div class="stat">
                 <span class="stat-value">99.9%</span>
@@ -56,32 +63,74 @@ import Layout from '../../layouts/Layout.astro';
       </div>
       <div class="features-grid">
         <div class="feature-card reveal">
-          <div class="feature-icon">🚀</div>
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </svg>
+          </div>
           <h3>Marketing Websites</h3>
           <p>High-performance marketing sites with CMS integration, SEO optimization, and conversion focus.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">🏢</div>
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+              <path d="M9 22v-4h6v4"/>
+              <path d="M8 6h.01"/>
+              <path d="M16 6h.01"/>
+              <path d="M12 6h.01"/>
+              <path d="M12 10h.01"/>
+              <path d="M12 14h.01"/>
+              <path d="M16 10h.01"/>
+              <path d="M16 14h.01"/>
+              <path d="M8 10h.01"/>
+              <path d="M8 14h.01"/>
+            </svg>
+          </div>
           <h3>Corporate Platforms</h3>
           <p>Enterprise-grade websites with multi-language support, accessibility, and complex content workflows.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">🛒</div>
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="21" r="1"/>
+              <circle cx="19" cy="21" r="1"/>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+            </svg>
+          </div>
           <h3>E-commerce</h3>
           <p>Custom shopping experiences with inventory management, payment integration, and order fulfillment.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">⚡</div>
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
           <h3>Web Applications</h3>
           <p>Complex SaaS platforms, dashboards, and internal tools with real-time functionality.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">📊</div>
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
           <h3>Portals & Dashboards</h3>
           <p>Customer portals, admin interfaces, and data visualization platforms.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">🔗</div>
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
           <h3>API & Integrations</h3>
           <p>Custom APIs, third-party integrations, and headless CMS implementations.</p>
         </div>

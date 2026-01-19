@@ -6,6 +6,7 @@ import PortfolioGrid from '../components/PortfolioGrid';
 <Layout 
   title="Portfolio" 
   description="Explore our work. Real outcomes from our integrated approach across brand, platform, and growth."
+  hideFooterCta={true}
 >
   <!-- Hero -->
   <section class="portfolio-hero">
@@ -113,32 +114,65 @@ import PortfolioGrid from '../components/PortfolioGrid';
       </div>
       <div class="industries-grid">
         <div class="industry-card reveal">
-          <div class="industry-icon">🏢</div>
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+              <line x1="8" y1="6" x2="16" y2="6"/>
+              <line x1="8" y1="10" x2="16" y2="10"/>
+              <line x1="8" y1="14" x2="12" y2="14"/>
+            </svg>
+          </div>
           <h3>Enterprise & B2B</h3>
           <p>Complex sales cycles, stakeholder management, and thought leadership</p>
         </div>
         <div class="industry-card reveal">
-          <div class="industry-icon">🛒</div>
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/>
+              <circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+          </div>
           <h3>E-commerce & Retail</h3>
           <p>Conversion optimization, customer experience, and omnichannel strategy</p>
         </div>
         <div class="industry-card reveal">
-          <div class="industry-icon">💳</div>
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
           <h3>Fintech & Finance</h3>
           <p>Trust-building, compliance-aware marketing, and user acquisition</p>
         </div>
         <div class="industry-card reveal">
-          <div class="industry-icon">🏥</div>
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
           <h3>Healthcare & Wellness</h3>
           <p>Patient engagement, provider communications, and regulatory navigation</p>
         </div>
         <div class="industry-card reveal">
-          <div class="industry-icon">⚡</div>
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
           <h3>Energy & Sustainability</h3>
           <p>Brand positioning, stakeholder engagement, and impact storytelling</p>
         </div>
         <div class="industry-card reveal">
-          <div class="industry-icon">🚀</div>
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </svg>
+          </div>
           <h3>Startups & Scale-ups</h3>
           <p>Brand foundation, rapid growth, and market entry strategy</p>
         </div>
@@ -235,7 +269,7 @@ import PortfolioGrid from '../components/PortfolioGrid';
   /* Stats Bar */
   .stats-bar {
     padding: var(--space-2xl) 0;
-    background: var(--color-text);
+    background: #1a1a1a;
   }
   
   .stats-grid {
@@ -390,21 +424,68 @@ import PortfolioGrid from '../components/PortfolioGrid';
   }
   
   .industry-card {
+    position: relative;
     padding: var(--space-xl);
     background: var(--color-cream);
     border-radius: var(--radius-xl);
     text-align: center;
-    transition: all var(--transition-base);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+  
+  .industry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-warm);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .industry-card:hover::before {
+    transform: scaleX(1);
   }
   
   .industry-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(255, 87, 87, 0.15);
+    background: var(--color-white);
+    border-color: rgba(255, 87, 87, 0.1);
   }
   
   .industry-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-md);
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-md);
+    background: var(--gradient-warm-soft);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  .industry-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary);
+    transition: all 0.4s ease;
+  }
+  
+  .industry-card:hover .industry-icon {
+    background: var(--gradient-warm);
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 25px rgba(255, 87, 87, 0.35);
+  }
+  
+  .industry-card:hover .industry-icon svg {
+    color: white;
+    transform: scale(1.1);
   }
   
   .industry-card h3 {

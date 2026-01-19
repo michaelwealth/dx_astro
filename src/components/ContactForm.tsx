@@ -6,10 +6,68 @@ interface FormData {
   name: string;
   email: string;
   company: string;
+  country: string;
   budget: string;
   service: string;
   message: string;
 }
+
+interface Country {
+  code: string;
+  name: string;
+  currency: string;
+  symbol: string;
+  rate: number; // Rate relative to USD
+}
+
+const countries: Country[] = [
+  { code: 'US', name: 'United States', currency: 'USD', symbol: '$', rate: 1 },
+  { code: 'CA', name: 'Canada', currency: 'CAD', symbol: 'C$', rate: 1.36 },
+  { code: 'NG', name: 'Nigeria', currency: 'NGN', symbol: '₦', rate: 1450 },
+  { code: 'GH', name: 'Ghana', currency: 'GHS', symbol: 'GH₵', rate: 14.5 },
+  { code: 'ZA', name: 'South Africa', currency: 'ZAR', symbol: 'R', rate: 18.5 },
+  { code: 'KE', name: 'Kenya', currency: 'KES', symbol: 'KSh', rate: 153 },
+  { code: 'TZ', name: 'Tanzania', currency: 'TZS', symbol: 'TSh', rate: 2500 },
+  { code: 'BE', name: 'Belgium', currency: 'EUR', symbol: '€', rate: 0.92 },
+  { code: 'NL', name: 'Netherlands', currency: 'EUR', symbol: '€', rate: 0.92 },
+  { code: 'BR', name: 'Brazil', currency: 'BRL', symbol: 'R$', rate: 5.0 },
+];
+
+const budgetRangesUSD = [
+  { min: 0, max: 5000, label: 'Under $5,000' },
+  { min: 8000, max: 15000, label: '$8,000 - $15,000' },
+  { min: 15000, max: 25000, label: '$15,000 - $25,000' },
+  { min: 25000, max: 50000, label: '$25,000 - $50,000' },
+];
+
+const formatCurrency = (amount: number, symbol: string): string => {
+  if (amount >= 1000000) {
+    return `${symbol}${(amount / 1000000).toFixed(1)}M`;
+  }
+  if (amount >= 1000) {
+    return `${symbol}${(amount / 1000).toFixed(0)}K`;
+  }
+  return `${symbol}${amount.toLocaleString()}`;
+};
+
+const getBudgetRanges = (country: Country) => {
+  return budgetRangesUSD.map(range => {
+    const minConverted = Math.round(range.min * country.rate);
+    const maxConverted = Math.round(range.max * country.rate);
+    
+    if (range.min === 0) {
+      return {
+        value: `Under ${formatCurrency(maxConverted, country.symbol)}`,
+        label: `Under ${formatCurrency(maxConverted, country.symbol)}`
+      };
+    }
+    
+    return {
+      value: `${formatCurrency(minConverted, country.symbol)} - ${formatCurrency(maxConverted, country.symbol)}`,
+      label: `${formatCurrency(minConverted, country.symbol)} - ${formatCurrency(maxConverted, country.symbol)}`
+    };
+  });
+};
 
 const ContactForm: React.FC = () => {
   const ref = useRef(null);
@@ -18,6 +76,7 @@ const ContactForm: React.FC = () => {
     name: '',
     email: '',
     company: '',
+    country: 'US',
     budget: '',
     service: '',
     message: ''
@@ -26,11 +85,25 @@ const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const selectedCountry = countries.find(c => c.code === formData.country) || countries[0];
+  const budgetOptions = getBudgetRanges(selectedCountry);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    const { name, value } = e.target;
+    
+    // Reset budget when country changes
+    if (name === 'country') {
+      setFormData(prev => ({
+        ...prev,
+        country: value,
+        budget: ''
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
     setError(null);
   };
 
@@ -46,7 +119,8 @@ const ContactForm: React.FC = () => {
         <p><strong>Name:</strong> ${formData.name}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
         <p><strong>Company:</strong> ${formData.company}</p>
-        <p><strong>Budget:</strong> ${formData.budget}</p>
+        <p><strong>Country:</strong> ${selectedCountry.name}</p>
+        <p><strong>Budget:</strong> ${formData.budget} (${selectedCountry.currency})</p>
         <p><strong>Service Interested:</strong> ${formData.service}</p>
         <p><strong>Message:</strong></p>
         <p>${formData.message.replace(/\n/g, '<br>')}</p>
@@ -90,6 +164,7 @@ const ContactForm: React.FC = () => {
         name: '',
         email: '',
         company: '',
+        country: 'US',
         budget: '',
         service: '',
         message: ''
@@ -112,14 +187,6 @@ const ContactForm: React.FC = () => {
     'Paid Media & Marketing',
     'Full Integrated Project',
     'Other'
-  ];
-
-  const budgets = [
-    'Under $25,000',
-    '$25,000 - $50,000',
-    '$50,000 - $100,000',
-    '$100,000 - $250,000',
-    '$250,000+'
   ];
 
   return (
@@ -268,7 +335,26 @@ const ContactForm: React.FC = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="budget">Budget Range</label>
+                    <label htmlFor="country">Country *</label>
+                    <select
+                      id="country"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      required
+                    >
+                      {countries.map(country => (
+                        <option key={country.code} value={country.code}>
+                          {country.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="budget">Budget Range ({selectedCountry.currency})</label>
                     <select
                       id="budget"
                       name="budget"
@@ -276,26 +362,25 @@ const ContactForm: React.FC = () => {
                       onChange={handleChange}
                     >
                       <option value="">Select budget</option>
-                      {budgets.map(budget => (
-                        <option key={budget} value={budget}>{budget}</option>
+                      {budgetOptions.map(budget => (
+                        <option key={budget.value} value={budget.value}>{budget.label}</option>
                       ))}
                     </select>
                   </div>
-                </div>
-                
-                <div className="form-group">
-                  <label htmlFor="service">What can we help with?</label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select a service</option>
-                    {services.map(service => (
-                      <option key={service} value={service}>{service}</option>
-                    ))}
-                  </select>
+                  <div className="form-group">
+                    <label htmlFor="service">What can we help with?</label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select a service</option>
+                      {services.map(service => (
+                        <option key={service} value={service}>{service}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 
                 <div className="form-group">

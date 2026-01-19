@@ -96,22 +96,6 @@ const projects: Project[] = [
     color: '#FF7A7A',
     size: 'large'
   },
-  {
-    id: 'project-6',
-    title: 'Corporate Website',
-    client: 'Nexus Innovations',
-    category: 'Platform & Brand',
-    tags: ['Web Development', 'Content Strategy', 'SEO'],
-    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=700&fit=crop',
-    description: 'Enterprise website with advanced CMS and multi-language support.',
-    metrics: [
-      { label: 'Organic Traffic', value: '+215%' },
-      { label: 'Lead Quality', value: '+67%' }
-    ],
-    href: '/portfolio/nexus',
-    color: '#FFB340',
-    size: 'medium'
-  },
 ];
 
 const PortfolioGrid: React.FC = () => {
@@ -315,7 +299,7 @@ const PortfolioGrid: React.FC = () => {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           grid-auto-rows: 10px;
-          gap: var(--space-md);
+          gap: var(--space-sm);
         }
         
         .masonry-card {
@@ -327,13 +311,36 @@ const PortfolioGrid: React.FC = () => {
           color: inherit;
           cursor: pointer;
           transform: translateZ(0);
-          transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+          box-shadow: 0 4px 20px rgba(255, 87, 87, 0.15), 0 0 0 1px rgba(255, 87, 87, 0.1);
+        }
+        
+        .masonry-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: var(--radius-xl);
+          padding: 2px;
+          background: linear-gradient(135deg, var(--card-color) 0%, rgba(255, 152, 0, 0.5) 100%);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0.5;
+          z-index: 1;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+        }
+        
+        .masonry-card:hover::before,
+        .masonry-card:focus-visible::before {
+          opacity: 1;
         }
         
         .masonry-card:hover,
         .masonry-card:focus-visible {
-          transform: scale(1.02);
+          transform: scale(1.02) translateY(-4px);
           z-index: 2;
+          box-shadow: 0 12px 40px rgba(255, 87, 87, 0.25), 0 0 0 2px var(--card-color);
         }
         
         .masonry-card:focus-visible {
@@ -366,7 +373,7 @@ const PortfolioGrid: React.FC = () => {
         .card-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
           transition: opacity 0.4s ease;
         }
         
@@ -392,13 +399,23 @@ const PortfolioGrid: React.FC = () => {
         }
         
         .card-client {
-          display: block;
+          display: inline-block;
           font-size: 0.75rem;
           font-weight: 600;
-          color: var(--card-color);
+          color: white;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          margin-bottom: var(--space-xs);
+          margin-bottom: var(--space-sm);
+          padding: 4px 12px;
+          background: var(--card-color);
+          border-radius: var(--radius-full);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          animation: subtlePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtlePulse {
+          0%, 100% { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+          50% { box-shadow: 0 4px 20px var(--card-color); }
         }
         
         .card-title {

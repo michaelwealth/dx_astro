@@ -6,6 +6,7 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
 <Layout 
   title="About Us" 
   description="We're Digital Xceeded—an integrated digital agency that brings together strategy, brand, platform, and growth expertise to deliver measurable outcomes."
+  hideFooterCta={true}
 >
   <!-- Hero -->
   <section class="about-hero">
@@ -100,25 +101,46 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
       
       <div class="team-capabilities">
         <div class="capability-card reveal">
-          <div class="capability-icon">🎯</div>
+          <div class="capability-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
           <h3>Strategy</h3>
           <p>Business strategists, digital consultants, and market researchers who turn insight into action.</p>
           <span class="capability-stat">10+ Years Avg. Experience</span>
         </div>
         <div class="capability-card reveal">
-          <div class="capability-icon">✨</div>
+          <div class="capability-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
           <h3>Brand & Design</h3>
           <p>Brand strategists, creative directors, UI/UX designers, and visual artists who make brands unforgettable.</p>
           <span class="capability-stat">Award-Winning Creatives</span>
         </div>
         <div class="capability-card reveal">
-          <div class="capability-icon">⚡</div>
+          <div class="capability-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
           <h3>Technology</h3>
           <p>Full-stack developers, architects, and engineers who build fast, scalable, secure digital products.</p>
           <span class="capability-stat">Modern Tech Stack</span>
         </div>
         <div class="capability-card reveal">
-          <div class="capability-icon">📈</div>
+          <div class="capability-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="20" x2="12" y2="10"/>
+              <line x1="18" y1="20" x2="18" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="16"/>
+              <polyline points="12 10 18 4"/>
+            </svg>
+          </div>
           <h3>Growth</h3>
           <p>Performance marketers, analysts, and conversion specialists who drive measurable results.</p>
           <span class="capability-stat">Data-Driven Approach</span>
@@ -159,7 +181,7 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
           </div>
         </div>
         <div class="approach-visual reveal">
-          <div class="integration-diagram">
+          <div class="integration-diagram" id="integration-diagram">
             <div class="diagram-center">
               <span>DX</span>
             </div>
@@ -176,7 +198,7 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
               <span class="orbit-label">Growth</span>
             </div>
             <svg class="orbit-ring" viewBox="0 0 400 400">
-              <circle cx="200" cy="200" r="150" fill="none" stroke="var(--color-soft-gray)" stroke-width="1" stroke-dasharray="8 8"/>
+              <circle cx="200" cy="200" r="150" fill="none" stroke-width="2" stroke-dasharray="8 8"/>
             </svg>
           </div>
         </div>
@@ -312,7 +334,7 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
   }
   
   .visual-card {
-    padding: var(--space-4xl);
+    padding: var(--space-3xl);
     background: var(--color-cream);
     border-radius: var(--radius-2xl);
     display: flex;
@@ -343,15 +365,34 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
   }
   
   .value-card {
+    position: relative;
     padding: var(--space-2xl);
     background: var(--color-white);
     border-radius: var(--radius-xl);
     transition: all var(--transition-base);
+    overflow: hidden;
+  }
+  
+  .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-warm);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .value-card:hover::before {
+    transform: scaleX(1);
   }
   
   .value-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 87, 87, 0.15), 0 0 0 1px rgba(255, 87, 87, 0.1);
   }
   
   .value-number {
@@ -393,21 +434,76 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
   }
   
   .capability-card {
+    position: relative;
     padding: var(--space-xl);
     background: var(--color-cream);
     border-radius: var(--radius-xl);
     text-align: center;
-    transition: all var(--transition-base);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+  
+  .capability-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-xl);
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 0%, transparent 40%, rgba(255, 87, 87, 0.3) 50%, transparent 60%, transparent 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .capability-card:hover::before {
+    opacity: 1;
+    animation: borderShine 2s linear infinite;
+  }
+  
+  @keyframes borderShine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
   
   .capability-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(255, 87, 87, 0.2);
+    background: var(--color-white);
+    border-color: rgba(255, 87, 87, 0.15);
   }
   
   .capability-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-md);
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-md);
+    background: var(--gradient-warm-soft);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  .capability-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary);
+    transition: all 0.4s ease;
+  }
+  
+  .capability-card:hover .capability-icon {
+    background: var(--gradient-warm);
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 25px rgba(255, 87, 87, 0.35);
+  }
+  
+  .capability-card:hover .capability-icon svg {
+    color: white;
+    transform: scale(1.1);
   }
   
   .capability-card h3 {
@@ -438,6 +534,33 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
     padding: var(--space-5xl) 0;
     background: var(--color-text);
     color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Premium noise texture overlay */
+  .approach-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Subtle gradient orb for premium feel */
+  .approach-section::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    right: -15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 87, 87, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
   }
   
   .approach-grid {
@@ -445,10 +568,17 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4xl);
     align-items: center;
+    position: relative;
+    z-index: 2;
   }
   
   .approach-section .section-label {
     color: var(--color-primary);
+  }
+  
+  .approach-content {
+    position: relative;
+    z-index: 2;
   }
   
   .approach-pillars {
@@ -485,12 +615,47 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
     display: flex;
     align-items: center;
     justify-content: center;
+    perspective: 1000px;
   }
   
   .integration-diagram {
     position: relative;
     width: 400px;
     height: 400px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+  }
+  
+  .integration-diagram.hovering .orbit-ring {
+    animation-play-state: paused;
+  }
+  
+  .integration-diagram:not(.hovering) .orbit-ring {
+    animation: orbitRotate 20s linear infinite;
+  }
+  
+  @keyframes orbitRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .integration-diagram.hovering .diagram-center {
+    box-shadow: 0 20px 60px rgba(255, 87, 87, 0.5);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .integration-diagram.hovering .orbit-ring circle {
+    stroke: var(--color-secondary);
+    stroke-width: 1;
+    stroke-dasharray: 4 4;
+    filter: drop-shadow(0 0 8px rgba(255, 152, 0, 0.6));
+  }
+  
+  .integration-diagram.hovering .diagram-orbit {
+    background: rgba(255, 152, 0, 0.8);
+    box-shadow: 0 0 25px rgba(255, 152, 0, 0.4);
+    border: 1px solid rgba(255, 152, 0, 0.5);
   }
   
   .diagram-center {
@@ -510,6 +675,7 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
     font-weight: 800;
     color: white;
     z-index: 2;
+    transition: all 0.3s ease;
   }
   
   .orbit-ring {
@@ -517,17 +683,24 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
     inset: 0;
     width: 100%;
     height: 100%;
+    transform-origin: center center;
+  }
+  
+  .orbit-ring circle {
+    stroke: rgba(255, 152, 0, 0.4);
+    transition: all 0.3s ease;
   }
   
   .diagram-orbit {
     position: absolute;
     width: 100px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(29, 30, 29, 1);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
   }
   
   .orbit-label {
@@ -605,3 +778,44 @@ import logoMain from '../assets/logos/Digtal Xceeded Logo.svg';
     }
   }
 </style>
+
+<script>
+  // Integration Diagram - Directional 3D Effect
+  const diagram = document.getElementById('integration-diagram');
+  
+  if (diagram) {
+    let isHovering = false;
+    
+    diagram.addEventListener('mouseenter', () => {
+      isHovering = true;
+      diagram.classList.add('hovering');
+    });
+    
+    diagram.addEventListener('mouseleave', () => {
+      isHovering = false;
+      diagram.classList.remove('hovering');
+      // Reset transform smoothly
+      diagram.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+    
+    diagram.addEventListener('mousemove', (e) => {
+      if (!isHovering) return;
+      
+      const rect = diagram.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      // Calculate mouse position relative to center (-1 to 1)
+      const mouseX = (e.clientX - centerX) / (rect.width / 2);
+      const mouseY = (e.clientY - centerY) / (rect.height / 2);
+      
+      // Apply directional rotation based on mouse position
+      // North = negative Y rotation, South = positive Y rotation
+      // East = positive X rotation, West = negative X rotation
+      const rotateY = mouseX * 20; // Max 20 degrees
+      const rotateX = -mouseY * 15; // Max 15 degrees (negative because CSS rotateX is inverted)
+      
+      diagram.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+  }
+</script>

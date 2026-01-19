@@ -188,8 +188,8 @@ const Testimonials: React.FC = () => {
       <style>{`
         .testimonials-section {
           padding: var(--space-5xl) 0;
-          background: var(--color-text);
-          color: var(--color-white);
+          background: #1a1a1a;
+          color: #ffffff;
           position: relative;
           overflow: hidden;
         }

@@ -151,14 +151,13 @@ const ServicesGrid: React.FC = () => {
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               
-              <ul className="service-features">
+              <div className="service-features">
                 {service.features.map((feature, i) => (
-                  <li key={i}>
-                    <span className="feature-dot" />
+                  <span key={i} className="feature-badge">
                     {feature}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
               
               <div className="service-cta">
                 <span>Explore</span>
@@ -345,27 +344,29 @@ const ServicesGrid: React.FC = () => {
         .service-features {
           display: flex;
           flex-wrap: wrap;
-          gap: var(--space-xs) var(--space-md);
-          list-style: none;
+          gap: var(--space-xs);
           margin-bottom: var(--space-lg);
         }
         
-        .service-features li {
-          display: flex;
+        .feature-badge {
+          display: inline-flex;
           align-items: center;
-          gap: var(--space-xs);
-          font-size: 0.8125rem;
-          font-weight: 500;
-          color: var(--color-text-light);
+          padding: 6px 12px;
+          background: linear-gradient(135deg, rgba(255, 87, 87, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%);
+          border: 1px solid rgba(255, 87, 87, 0.12);
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 600;
+          color: var(--service-accent);
           white-space: nowrap;
+          transition: all 0.3s ease;
+          letter-spacing: 0.02em;
         }
         
-        .feature-dot {
-          width: 6px;
-          height: 6px;
-          background: var(--service-gradient);
-          border-radius: 50%;
-          flex-shrink: 0;
+        .service-card:hover .feature-badge {
+          background: linear-gradient(135deg, rgba(255, 87, 87, 0.12) 0%, rgba(255, 152, 0, 0.12) 100%);
+          border-color: var(--service-accent);
+          transform: translateY(-1px);
         }
         
         .service-cta {

@@ -43,31 +43,14 @@ const socialLinks = [
     <section class="footer-cta">
       <div class="container">
         <div class="cta-content">
-          <div class="cta-text">
-            <span class="cta-eyebrow">Ready to Elevate?</span>
-            <h2 class="cta-title">Let's build something <span class="text-gradient">extraordinary</span> together</h2>
-            <p class="cta-subtitle">From strategy to execution, we're your integrated partner for digital growth.</p>
-          </div>
-          <div class="cta-actions">
-            <a href="/contact" class="btn btn-primary btn-lg">
-              Start a Conversation
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a href="/portfolio" class="btn btn-secondary btn-lg">
-              View Our Work
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative Elements -->
-        <div class="cta-decoration" aria-hidden="true">
-          <div class="cta-circle cta-circle-1"></div>
-          <div class="cta-circle cta-circle-2"></div>
-          <div class="cta-lines">
-            <span></span><span></span><span></span>
-          </div>
+          <h2 class="cta-title">Your next breakthrough starts with <span class="text-gradient">a conversation</span></h2>
+          <p class="cta-subtitle">Whether you're launching a new brand, reimagining your digital presence, or scaling your growth, we're ready to be your integrated partner.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Let's Talk
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -181,7 +164,7 @@ const socialLinks = [
   .footer-cta {
     position: relative;
     padding: var(--space-5xl) 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
     overflow: hidden;
   }
   
@@ -192,94 +175,36 @@ const socialLinks = [
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: var(--space-2xl);
-  }
-  
-  .cta-eyebrow {
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-primary);
-    margin-bottom: var(--space-sm);
+    max-width: 800px;
+    margin: 0 auto;
   }
   
   .cta-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: #FFFFFF;
-    max-width: 800px;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
   }
   
   .cta-subtitle {
     font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 600px;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
   }
   
-  .cta-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    justify-content: center;
+  .cta-content .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
   }
   
-  .cta-actions .btn-secondary {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: #FFFFFF;
+  .cta-content .btn svg {
+    transition: transform var(--transition-fast);
   }
   
-  .cta-actions .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-    color: #FFFFFF;
-  }
-  
-  /* CTA Decorations */
-  .cta-decoration {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  
-  .cta-circle {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 87, 87, 0.2);
-  }
-  
-  .cta-circle-1 {
-    width: 600px;
-    height: 600px;
-    top: -300px;
-    right: -200px;
-  }
-  
-  .cta-circle-2 {
-    width: 400px;
-    height: 400px;
-    bottom: -200px;
-    left: -100px;
-    border-color: rgba(255, 152, 0, 0.2);
-  }
-  
-  .cta-lines {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .cta-lines span {
-    display: block;
-    width: 1px;
-    height: 200px;
-    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transform: translateY(-50%);
+  .cta-content .btn:hover svg {
+    transform: translateX(4px);
   }
   
   /* Main Footer */

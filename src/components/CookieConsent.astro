@@ -1,9 +1,21 @@
 ---
 // Cookie Consent Banner - Minimized popup with expand functionality
 // WCAG compliant with support for Africa, Europe, and North America
+// Features: Minimize to tiny icon after selection, re-open to update preferences
 ---
 
 <div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-modal="false">
+  <!-- Tiny Icon View (shown after user makes a choice) -->
+  <button class="cookie-tiny-icon" id="cookie-tiny-icon" aria-label="Update cookie preferences" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="8" cy="9" r="1.5" fill="currentColor"/>
+      <circle cx="15" cy="9" r="1.5" fill="currentColor"/>
+      <circle cx="10" cy="14" r="1.5" fill="currentColor"/>
+      <circle cx="16" cy="13" r="1" fill="currentColor"/>
+    </svg>
+  </button>
+
   <!-- Minimized View -->
   <div class="cookie-minimized" id="cookie-minimized">
     <div class="cookie-mini-content">
@@ -170,18 +182,52 @@
     if (banner) banner.classList.remove('hidden');
   }
 
+  function showTinyIcon(): void {
+    const minimized = document.getElementById('cookie-minimized');
+    const expanded = document.getElementById('cookie-expanded');
+    const tinyIcon = document.getElementById('cookie-tiny-icon');
+    const banner = document.getElementById('cookie-consent-banner');
+    
+    if (minimized) minimized.setAttribute('aria-hidden', 'true');
+    if (expanded) expanded.setAttribute('aria-hidden', 'true');
+    if (tinyIcon) tinyIcon.setAttribute('aria-hidden', 'false');
+    if (banner) banner.classList.add('tiny-mode');
+  }
+
+  function hideTinyIconAndShowMinimized(): void {
+    const minimized = document.getElementById('cookie-minimized');
+    const expanded = document.getElementById('cookie-expanded');
+    const tinyIcon = document.getElementById('cookie-tiny-icon');
+    const banner = document.getElementById('cookie-consent-banner');
+    
+    if (tinyIcon) tinyIcon.setAttribute('aria-hidden', 'true');
+    if (minimized) minimized.setAttribute('aria-hidden', 'false');
+    if (expanded) expanded.setAttribute('aria-hidden', 'true');
+    if (banner) banner.classList.remove('tiny-mode');
+  }
+
   function showExpanded(): void {
     const minimized = document.getElementById('cookie-minimized');
     const expanded = document.getElementById('cookie-expanded');
+    const tinyIcon = document.getElementById('cookie-tiny-icon');
+    const banner = document.getElementById('cookie-consent-banner');
+    
     if (minimized) minimized.setAttribute('aria-hidden', 'true');
     if (expanded) expanded.setAttribute('aria-hidden', 'false');
+    if (tinyIcon) tinyIcon.setAttribute('aria-hidden', 'true');
+    if (banner) banner.classList.remove('tiny-mode');
   }
 
   function showMinimized(): void {
     const minimized = document.getElementById('cookie-minimized');
     const expanded = document.getElementById('cookie-expanded');
+    const tinyIcon = document.getElementById('cookie-tiny-icon');
+    const banner = document.getElementById('cookie-consent-banner');
+    
     if (minimized) minimized.setAttribute('aria-hidden', 'false');
     if (expanded) expanded.setAttribute('aria-hidden', 'true');
+    if (tinyIcon) tinyIcon.setAttribute('aria-hidden', 'true');
+    if (banner) banner.classList.remove('tiny-mode');
   }
 
   function acceptAll(): void {
@@ -192,7 +238,7 @@
       timestamp: Date.now()
     };
     saveCookiePreferences(prefs);
-    hideCookieBanner();
+    showTinyIcon();
   }
 
   function rejectOptional(): void {
@@ -203,7 +249,7 @@
       timestamp: Date.now()
     };
     saveCookiePreferences(prefs);
-    hideCookieBanner();
+    showTinyIcon();
   }
 
   function saveSelected(): void {
@@ -216,18 +262,30 @@
       timestamp: Date.now()
     };
     saveCookiePreferences(prefs);
-    hideCookieBanner();
+    showTinyIcon();
+  }
+
+  function loadPreferencesIntoUI(): void {
+    const prefs = getCookiePreferences();
+    if (prefs) {
+      const analyticsCheckbox = document.getElementById('analytics-cookies') as HTMLInputElement;
+      const marketingCheckbox = document.getElementById('marketing-cookies') as HTMLInputElement;
+      if (analyticsCheckbox) analyticsCheckbox.checked = prefs.analytics;
+      if (marketingCheckbox) marketingCheckbox.checked = prefs.marketing;
+    }
   }
 
   function initializeCookieConsent(): void {
     const existingPrefs = getCookiePreferences();
     
     if (existingPrefs) {
-      hideCookieBanner();
-      return;
+      // User already made a choice, show tiny icon
+      showTinyIcon();
+      loadPreferencesIntoUI();
+    } else {
+      // First visit, show full banner
+      showCookieBanner();
     }
-
-    showCookieBanner();
 
     // Button handlers
     document.getElementById('accept-all-btn')?.addEventListener('click', acceptAll);
@@ -236,6 +294,12 @@
     document.getElementById('customize-btn')?.addEventListener('click', showExpanded);
     document.getElementById('collapse-btn')?.addEventListener('click', showMinimized);
     document.getElementById('save-preferences-btn')?.addEventListener('click', saveSelected);
+    
+    // Tiny icon click handler - re-open banner to update preferences
+    document.getElementById('cookie-tiny-icon')?.addEventListener('click', () => {
+      loadPreferencesIntoUI();
+      hideTinyIconAndShowMinimized();
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -260,11 +324,25 @@
     overflow: hidden;
   }
 
+  /* Tiny mode - when user has already made a choice */
+  .cookie-banner.tiny-mode {
+    bottom: 24px;
+    left: 24px;
+    right: auto;
+    max-width: none;
+    width: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
   .cookie-banner.hidden {
     display: none;
   }
 
-  :global([data-theme="dark"]) .cookie-banner {
+  :global([data-theme="dark"]) .cookie-banner:not(.tiny-mode) {
     background: #1f2937;
     border-color: rgba(255, 255, 255, 0.1);
   }
@@ -278,6 +356,39 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+  }
+
+  /* Tiny Icon (shown after user makes a choice) */
+  .cookie-tiny-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #FF5757 0%, #FF9800 100%);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 87, 87, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .cookie-tiny-icon[aria-hidden="true"] {
+    display: none;
+  }
+
+  .cookie-tiny-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 87, 87, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .cookie-tiny-icon:active {
+    transform: scale(0.95);
+  }
+
+  .cookie-tiny-icon svg {
+    flex-shrink: 0;
   }
 
   /* Minimized View */
@@ -640,6 +751,22 @@
       right: 16px;
       left: 16px;
       max-width: none;
+    }
+
+    .cookie-banner.tiny-mode {
+      left: 16px;
+      right: auto;
+      bottom: 16px;
+    }
+
+    .cookie-tiny-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .cookie-tiny-icon svg {
+      width: 18px;
+      height: 18px;
     }
 
     .cookie-mini-actions {

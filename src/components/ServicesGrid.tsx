@@ -401,7 +401,14 @@ const ServicesGrid: React.FC = () => {
           }
           
           .service-card {
-            padding: var(--space-xl);
+            padding: var(--space-lg);
+          }
+          
+          .feature-badge {
+            padding: 5px 8px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
           }
         }
       `}</style>

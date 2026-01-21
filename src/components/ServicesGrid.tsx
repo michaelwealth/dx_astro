@@ -17,19 +17,19 @@ const services: Service[] = [
     id: 'brand-experience',
     title: 'Brand & Experience',
     description: 'Craft compelling brand identities, intuitive interfaces, and immersive experiences that resonate with your audience and drive meaningful connections.',
-    features: ['Brand Strategy & Identity', 'UI/UX Design', 'Experiential Marketing', 'Video Production'],
+    features: ['Brand Strategy & Identity', 'UI/UX Design', 'Experiential Marketing', 'Video Production', 'Creative Content'],
     icon: '✦',
-    href: '/services/branding-design',
+    href: '/services/brand-experience',
     gradient: 'linear-gradient(135deg, #FF5757 0%, #FF8A5B 100%)',
     accentColor: '#FF5757'
   },
   {
     id: 'digital-platforms',
     title: 'Digital Platforms',
-    description: 'Build fast, scalable, and conversion-optimized digital products—from responsive websites to native mobile apps with seamless integrations.',
-    features: ['Web Development', 'App Development', 'Platform Support', 'AI Integration'],
+    description: 'Build fast, scalable, and conversion-optimized digital products—from responsive websites to native mobile apps with seamless integrations and AI-powered solutions.',
+    features: ['Web Development', 'App Development', 'Platform Support', 'AI Integration', 'Automation'],
     icon: '◈',
-    href: '/services/web-development',
+    href: '/services/digital-platforms',
     gradient: 'linear-gradient(135deg, #FF9800 0%, #FFB340 100%)',
     accentColor: '#FF9800'
   },
@@ -39,7 +39,7 @@ const services: Service[] = [
     description: 'Drive measurable growth through precision-targeted campaigns across search, social, and display—maximizing ROI at every touchpoint.',
     features: ['Search Marketing (SEM)', 'Paid Social', 'Display & Retargeting', 'Media Relations'],
     icon: '◇',
-    href: '/services/sem',
+    href: '/services/growth-media',
     gradient: 'linear-gradient(135deg, #FF6B6B 0%, #FF9A8B 100%)',
     accentColor: '#FF6B6B'
   },
@@ -49,29 +49,9 @@ const services: Service[] = [
     description: 'Navigate digital transformation with clarity. Our strategic frameworks align initiatives with business goals for sustainable competitive advantage.',
     features: ['Digital Strategy', 'Consulting & Advisory', 'Training Programs', 'Audits & Reviews'],
     icon: '▲',
-    href: '/services/digital-strategy',
+    href: '/services/strategy-advisory',
     gradient: 'linear-gradient(135deg, #E68A00 0%, #FFB340 100%)',
     accentColor: '#E68A00'
-  },
-  {
-    id: 'creative-production',
-    title: 'Creative Production',
-    description: 'From concept to execution—compelling visual storytelling, motion graphics, and content that captures attention and drives action.',
-    features: ['Video Production', 'Motion Graphics', 'Photography', 'Content Creation'],
-    icon: '●',
-    href: '/services/video-production',
-    gradient: 'linear-gradient(135deg, #FF7A7A 0%, #FFB347 100%)',
-    accentColor: '#FF7A7A'
-  },
-  {
-    id: 'innovation-tech',
-    title: 'Innovation & Tech',
-    description: 'Stay ahead with cutting-edge solutions—AI-powered tools, automation, and emerging technologies that transform how you operate and compete.',
-    features: ['AI Tools Integration', 'Automation', 'Tech Consulting', 'Emerging Tech'],
-    icon: '⬡',
-    href: '/services/ai-integration',
-    gradient: 'linear-gradient(135deg, #FF8C42 0%, #FFD166 100%)',
-    accentColor: '#FF8C42'
   },
 ];
 
@@ -249,7 +229,7 @@ const ServicesGrid: React.FC = () => {
         
         .services-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: var(--space-xl);
         }
         
@@ -344,23 +324,23 @@ const ServicesGrid: React.FC = () => {
         .service-features {
           display: flex;
           flex-wrap: wrap;
-          gap: var(--space-xs);
+          gap: var(--space-sm);
           margin-bottom: var(--space-lg);
         }
         
         .feature-badge {
           display: inline-flex;
           align-items: center;
-          padding: 6px 12px;
+          padding: 8px 16px;
           background: linear-gradient(135deg, rgba(255, 87, 87, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%);
           border: 1px solid rgba(255, 87, 87, 0.12);
           border-radius: var(--radius-full);
-          font-size: 0.6875rem;
+          font-size: 0.8rem;
           font-weight: 600;
           color: var(--service-accent);
           white-space: nowrap;
           transition: all 0.3s ease;
-          letter-spacing: 0.02em;
+          letter-spacing: 0.05em;
         }
         
         .service-card:hover .feature-badge {

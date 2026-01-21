@@ -332,8 +332,7 @@ const services = [
     display: flex;
     justify-content: center;
     gap: var(--space-xl);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    flex-wrap: wrap;
   }
   
   .nav-link {
@@ -583,6 +582,8 @@ const services = [
     .nav-links {
       justify-content: flex-start;
       padding: 0 var(--space-md);
+      gap: var(--space-sm);
+      flex-wrap: wrap;
     }
     
     .cta-actions {

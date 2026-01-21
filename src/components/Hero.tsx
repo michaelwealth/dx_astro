@@ -297,6 +297,11 @@ const Hero: React.FC<HeroProps> = ({
           50% { opacity: 0.7; transform: scale(1.3); }
         }
         
+        /* Dark mode styles */
+        html[data-theme="dark"] .hero-badge {
+          color: #000000;
+        }
+        
         .hero-title {
           font-size: clamp(2.75rem, 5.5vw, 4.5rem);
           font-weight: 800;

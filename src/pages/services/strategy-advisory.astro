@@ -2,194 +2,175 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout
-  title="Strategy & Advisory | Digital Xceeded"
-  description="Navigate digital transformation with clarity. Our strategic frameworks align initiatives with business goals for sustainable competitive advantage."
-  hideFooterCta={true}
->
+<Layout title="Strategy & Advisory - Digital Xceeded" hideFooterCta={true}>
+  <!-- Hero Section -->
   <section class="category-hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="pattern-overlay"></div>
+    </div>
     <div class="container">
       <nav class="breadcrumb">
         <a href="/">Home</a>
-        <span>/</span>
+        <span class="separator">/</span>
         <a href="/services">Services</a>
-        <span>/</span>
-        <span>Strategy & Advisory</span>
+        <span class="separator">/</span>
+        <span class="current">Strategy & Advisory</span>
       </nav>
-
       <div class="hero-content">
-        <div class="hero-text">
-          <span class="category-badge">Strategy & Advisory</span>
-          <h1>Strategic clarity in a complex world</h1>
-          <p class="hero-description">
-            We cut through digital complexity to deliver strategic frameworks that align technology with business objectives.
-            Our advisory services provide the roadmap for sustainable competitive advantage.
-          </p>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-value">500+</span>
-              <span class="stat-label">Strategies Delivered</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">92%</span>
-              <span class="stat-label">Success Rate</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">24/7</span>
-              <span class="stat-label">Strategic Support</span>
-            </div>
+        <span class="category-badge">Service Category</span>
+        <h1>Strategy & <span class="gradient-text">Advisory</span></h1>
+        <p class="hero-description">
+          We cut through digital complexity to deliver strategic frameworks that align technology 
+          with business objectives. Our advisory services provide the roadmap for sustainable 
+          competitive advantage and digital transformation success.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Strategies Delivered</span>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="strategy-showcase">
-            <div class="floating-element elem-1">
-              <div class="strategy-roadmap">
-                <div class="roadmap-header">
-                  <div class="roadmap-title">Digital Transformation</div>
-                  <div class="roadmap-phase">Phase 1</div>
-                </div>
-                <div class="roadmap-steps">
-                  <div class="step completed">
-                    <div class="step-dot"></div>
-                    <div class="step-label">Assessment</div>
-                  </div>
-                  <div class="step active">
-                    <div class="step-dot"></div>
-                    <div class="step-label">Strategy</div>
-                  </div>
-                  <div class="step upcoming">
-                    <div class="step-dot"></div>
-                    <div class="step-label">Implementation</div>
-                  </div>
-                  <div class="step upcoming">
-                    <div class="step-dot"></div>
-                    <div class="step-label">Optimization</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="floating-element elem-2">
-              <div class="consultation-card">
-                <div class="consultation-header">
-                  <div class="consultant-avatar">👔</div>
-                  <div class="consultation-info">
-                    <div class="consultant-name">Strategy Session</div>
-                    <div class="consultation-time">2 hours</div>
-                  </div>
-                </div>
-                <div class="consultation-agenda">
-                  <div class="agenda-item">Business Analysis</div>
-                  <div class="agenda-item">Digital Audit</div>
-                  <div class="agenda-item">Strategic Roadmap</div>
-                </div>
-              </div>
-            </div>
-            <div class="floating-element elem-3">
-              <div class="metrics-dashboard">
-                <div class="dashboard-header">
-                  <div class="dashboard-title">Performance Metrics</div>
-                  <div class="dashboard-period">Q4 2024</div>
-                </div>
-                <div class="metrics-grid">
-                  <div class="metric-item">
-                    <div class="metric-value">+156%</div>
-                    <div class="metric-label">Growth</div>
-                  </div>
-                  <div class="metric-item">
-                    <div class="metric-value">3.4x</div>
-                    <div class="metric-label">ROI</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="stat">
+            <span class="stat-number">92%</span>
+            <span class="stat-label">Implementation Success</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Years Experience</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Services Showcase Section -->
   <section class="services-showcase">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Our Services</span>
-        <h2>Strategic guidance for digital success</h2>
-        <p>Comprehensive advisory services that provide clarity, direction, and actionable insights for your digital transformation.</p>
+      <div class="section-header">
+        <span class="section-tag">Our Services</span>
+        <h2>Strategic Guidance for Digital Success</h2>
+        <p>Expert advisory services to navigate your digital transformation journey</p>
       </div>
 
-      <div class="services-mosaic">
-        <div class="service-card featured reveal">
-          <div class="card-background">
-            <div class="gradient-overlay"></div>
-          </div>
-          <div class="card-content">
+      <div class="services-list">
+        <!-- Service 1: Digital Strategy -->
+        <div class="service-row">
+          <div class="service-number">01</div>
+          <div class="service-content">
             <div class="service-icon">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m16.24-3.76l-4.24 4.24m-6-6L2.76 6.24m16.24 7.52l-4.24-4.24m-6 6L2.76 17.76"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
             </div>
-            <h3>Digital Strategy</h3>
-            <p>Comprehensive digital strategies that align technology initiatives with business objectives. We develop roadmaps for sustainable growth and competitive advantage.</p>
-            <div class="service-features">
-              <span class="feature-tag">Market Analysis</span>
-              <span class="feature-tag">Competitive Audit</span>
-              <span class="feature-tag">Roadmapping</span>
+            <div class="service-info">
+              <h3>Digital Strategy</h3>
+              <p>Develop comprehensive digital roadmaps that align technology investments with business goals. We help you prioritize initiatives, allocate resources, and create actionable plans for digital transformation.</p>
+              <ul class="service-features">
+                <li>Digital Maturity Assessment</li>
+                <li>Technology Roadmapping</li>
+                <li>Competitive Analysis</li>
+                <li>Investment Prioritization</li>
+              </ul>
             </div>
             <a href="/services/digital-strategy" class="service-link">
-              Explore Strategy →
+              <span>Explore Service</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
           </div>
         </div>
 
-        <div class="service-card reveal">
-          <div class="card-content">
+        <!-- Service 2: Consulting -->
+        <div class="service-row">
+          <div class="service-number">02</div>
+          <div class="service-content">
             <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h3>Consulting & Advisory</h3>
-            <p>Expert guidance on digital transformation, technology adoption, and organizational change management.</p>
+            <div class="service-info">
+              <h3>Consulting</h3>
+              <p>Access expert guidance on complex digital challenges. Our consultants bring deep industry expertise to help you navigate technology decisions, organizational change, and market dynamics.</p>
+              <ul class="service-features">
+                <li>Executive Advisory</li>
+                <li>Technology Selection</li>
+                <li>Vendor Evaluation</li>
+                <li>Change Management</li>
+              </ul>
+            </div>
             <a href="/services/consulting" class="service-link">
-              Learn More →
+              <span>Explore Service</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
           </div>
         </div>
 
-        <div class="service-card reveal">
-          <div class="card-content">
+        <!-- Service 3: Audits -->
+        <div class="service-row">
+          <div class="service-number">03</div>
+          <div class="service-content">
             <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
               </svg>
             </div>
-            <h3>Training Programs</h3>
-            <p>Comprehensive training programs that build digital capabilities and empower your team with essential skills.</p>
-            <a href="/services/training" class="service-link">
-              Discover Training →
-            </a>
-          </div>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="card-content">
-            <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14,2 14,8 20,8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10,9 9,9 8,9"/>
-              </svg>
+            <div class="service-info">
+              <h3>Audits</h3>
+              <p>Comprehensive assessments of your digital ecosystem, performance, and capabilities. We identify opportunities, gaps, and risks to inform strategic decision-making.</p>
+              <ul class="service-features">
+                <li>Digital Capability Assessment</li>
+                <li>Performance Audits</li>
+                <li>Security Reviews</li>
+                <li>UX Audits</li>
+              </ul>
             </div>
-            <h3>Audits & Reviews</h3>
-            <p>Comprehensive digital audits and performance reviews that identify opportunities and optimize existing systems.</p>
             <a href="/services/audits" class="service-link">
-              Explore Audits →
+              <span>Explore Service</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 4: Training -->
+        <div class="service-row">
+          <div class="service-number">04</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="service-info">
+              <h3>Training</h3>
+              <p>Build internal capabilities with customized training programs. We help your team develop the skills needed to execute digital initiatives and drive ongoing innovation.</p>
+              <ul class="service-features">
+                <li>Digital Skills Workshops</li>
+                <li>Leadership Development</li>
+                <li>Tool-Specific Training</li>
+                <li>Best Practice Coaching</li>
+              </ul>
+            </div>
+            <a href="/services/training" class="service-link">
+              <span>Explore Service</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
           </div>
         </div>
@@ -197,104 +178,124 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="expertise-section">
+  <!-- Why Choose Section -->
+  <section class="why-choose">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Expertise</span>
-        <h2>Areas of strategic focus</h2>
-      </div>
-
-      <div class="expertise-grid">
-        <div class="expertise-card reveal">
-          <div class="expertise-icon">🎯</div>
-          <h3>Digital Transformation</h3>
-          <p>End-to-end transformation strategies that modernize operations and drive innovation.</p>
+      <div class="why-grid">
+        <div class="why-content">
+          <span class="section-tag">Why Choose Us</span>
+          <h2>Strategic Expertise That Delivers</h2>
+          <p>We combine deep industry knowledge with practical experience to help organizations navigate their digital transformation journeys successfully.</p>
+          <ul class="benefits-list">
+            <li>
+              <span class="benefit-icon">✓</span>
+              <span>Senior consultants with 15+ years of industry experience</span>
+            </li>
+            <li>
+              <span class="benefit-icon">✓</span>
+              <span>Proven frameworks adapted to your unique context</span>
+            </li>
+            <li>
+              <span class="benefit-icon">✓</span>
+              <span>Actionable recommendations, not just reports</span>
+            </li>
+            <li>
+              <span class="benefit-icon">✓</span>
+              <span>Ongoing support through implementation</span>
+            </li>
+          </ul>
         </div>
-
-        <div class="expertise-card reveal">
-          <div class="expertise-icon">📊</div>
-          <h3>Data Strategy</h3>
-          <p>Data-driven decision frameworks and analytics strategies for competitive advantage.</p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <div class="expertise-icon">🚀</div>
-          <h3>Technology Roadmap</h3>
-          <p>Strategic technology planning and implementation roadmaps aligned with business goals.</p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <div class="expertise-icon">👥</div>
-          <h3>Change Management</h3>
-          <p>Organizational change strategies that ensure successful digital adoption and transformation.</p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <div class="expertise-icon">💡</div>
-          <h3>Innovation Strategy</h3>
-          <p>Innovation frameworks and methodologies to foster creativity and drive breakthrough results.</p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <div class="expertise-icon">📈</div>
-          <h3>Growth Strategy</h3>
-          <p>Scalable growth strategies that expand market reach and maximize business potential.</p>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <blockquote>
+            Digital Xceeded's strategic guidance was instrumental in our digital transformation. Their clear roadmap and ongoing advisory support helped us achieve our goals ahead of schedule.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">DP</div>
+            <div class="author-info">
+              <span class="author-name">David Park</span>
+              <span class="author-title">CEO, Nexus Technologies</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Process Section -->
   <section class="process-section">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Our Process</span>
-        <h2>Strategic methodology</h2>
+      <div class="section-header center">
+        <span class="section-tag">Our Process</span>
+        <h2>How We Deliver Strategic Value</h2>
+        <p>A collaborative approach that ensures actionable outcomes</p>
       </div>
 
       <div class="process-timeline">
-        <div class="process-step reveal">
-          <div class="step-number">01</div>
+        <div class="process-step">
+          <div class="step-marker">
+            <span class="step-number">1</span>
+            <div class="step-line"></div>
+          </div>
           <div class="step-content">
-            <h3>Discovery & Analysis</h3>
-            <p>Comprehensive assessment of your current state, market position, and strategic opportunities.</p>
+            <h3>Discovery & Assessment</h3>
+            <p>We conduct thorough analysis of your current state, market position, and organizational capabilities.</p>
           </div>
         </div>
 
-        <div class="process-step reveal">
-          <div class="step-number">02</div>
+        <div class="process-step">
+          <div class="step-marker">
+            <span class="step-number">2</span>
+            <div class="step-line"></div>
+          </div>
           <div class="step-content">
-            <h3>Strategic Planning</h3>
-            <p>Development of actionable strategies with clear objectives, timelines, and success metrics.</p>
+            <h3>Strategy Development</h3>
+            <p>We craft tailored strategies and roadmaps aligned with your business objectives and constraints.</p>
           </div>
         </div>
 
-        <div class="process-step reveal">
-          <div class="step-number">03</div>
+        <div class="process-step">
+          <div class="step-marker">
+            <span class="step-number">3</span>
+            <div class="step-line"></div>
+          </div>
           <div class="step-content">
-            <h3>Implementation Support</h3>
-            <p>Hands-on guidance during execution with regular check-ins and course corrections.</p>
+            <h3>Validation & Planning</h3>
+            <p>We refine recommendations through stakeholder input and develop detailed implementation plans.</p>
           </div>
         </div>
 
-        <div class="process-step reveal">
-          <div class="step-number">04</div>
+        <div class="process-step">
+          <div class="step-marker">
+            <span class="step-number">4</span>
+          </div>
           <div class="step-content">
-            <h3>Measurement & Optimization</h3>
-            <p>Ongoing performance monitoring and strategic adjustments for continuous improvement.</p>
+            <h3>Support & Coaching</h3>
+            <p>We provide ongoing advisory support to ensure successful execution and continuous improvement.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CTA Section -->
   <section class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-circle circle-1"></div>
+      <div class="cta-circle circle-2"></div>
+    </div>
     <div class="container">
-      <div class="cta-content reveal">
-        <h2>Ready to unlock your <span class="text-gradient">strategic potential</span>?</h2>
-        <p>Let's develop a clear strategic roadmap that aligns your digital initiatives with business success.</p>
-        <div class="cta-actions">
-          <a href="/contact" class="btn btn-primary btn-lg">Start Strategic Planning</a>
-          <a href="/portfolio" class="btn btn-secondary btn-lg">View Case Studies</a>
+      <div class="cta-content">
+        <h2>Ready for Strategic Clarity?</h2>
+        <p>Let's develop a roadmap that transforms your digital ambitions into reality. Get in touch to start the conversation.</p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Start a Project
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/portfolio" class="btn btn-secondary btn-lg">View Our Work</a>
         </div>
       </div>
     </div>
@@ -302,32 +303,60 @@ import Layout from '../../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* Strategy & Advisory Category Styles */
-  :global(.strategy-advisory) {
-    --strategy-primary: #1a365d;
-    --strategy-secondary: #2d3748;
-    --strategy-accent: #3182ce;
-    --strategy-light: #f7fafc;
-    --strategy-gradient: linear-gradient(135deg, #1a365d 0%, #3182ce 100%);
+  /* Hero Section */
+  .category-hero {
+    position: relative;
+    padding: 8rem 0 5rem;
+    overflow: hidden;
+    background: var(--color-bg-secondary);
   }
 
-  .category-hero {
-    background: var(--strategy-gradient);
-    color: white;
-    padding: 6rem 0 4rem;
-    position: relative;
+  .hero-bg {
+    position: absolute;
+    inset: 0;
     overflow: hidden;
   }
 
-  .category-hero::before {
-    content: '';
+  .gradient-orb {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--color-primary);
+    top: -200px;
+    right: -100px;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--color-secondary);
+    bottom: -150px;
+    left: -100px;
+  }
+
+  .pattern-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  html[data-theme="dark"] .pattern-overlay {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .breadcrumb {
@@ -336,49 +365,50 @@ import Layout from '../../layouts/Layout.astro';
     gap: 0.5rem;
     font-size: 0.875rem;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-secondary);
   }
 
   .breadcrumb a {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
   }
 
   .breadcrumb a:hover {
-    color: white;
+    color: var(--color-primary);
   }
 
-  .breadcrumb span {
-    color: rgba(255, 255, 255, 0.6);
+  .breadcrumb .current {
+    color: var(--color-text);
+  }
+
+  .hero-content {
+    max-width: 800px;
   }
 
   .category-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
     padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 500;
     margin-bottom: 1.5rem;
   }
 
-  .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .hero-text h1 {
-    font-size: 3.5rem;
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.8) 100%);
+    color: var(--color-text);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -386,931 +416,591 @@ import Layout from '../../layouts/Layout.astro';
 
   .hero-description {
     font-size: 1.25rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 3rem;
   }
 
   .hero-stats {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+    flex-wrap: wrap;
   }
 
   .stat {
-    text-align: center;
-  }
-
-  .stat-value {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-  }
-
-  .stat-label {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 0.25rem;
-  }
-
-  .strategy-showcase {
-    position: relative;
-    height: 400px;
-  }
-
-  .floating-element {
-    position: absolute;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .elem-1 {
-    top: 0;
-    left: 0;
-    animation-delay: 0s;
-  }
-
-  .elem-2 {
-    top: 30%;
-    right: 10%;
-    animation-delay: -2s;
-  }
-
-  .elem-3 {
-    bottom: 0;
-    left: 20%;
-    animation-delay: -4s;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .strategy-roadmap {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    width: 280px;
-  }
-
-  .roadmap-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .roadmap-title {
-    font-weight: 600;
-    color: var(--strategy-primary);
-  }
-
-  .roadmap-phase {
-    background: var(--strategy-accent);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .roadmap-steps {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .step-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    position: relative;
-  }
-
-  .step.completed .step-dot {
-    background: #48bb78;
-  }
-
-  .step.active .step-dot {
-    background: var(--strategy-accent);
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3);
-  }
-
-  .step.upcoming .step-dot {
-    background: #e2e8f0;
-  }
-
-  .step-label {
-    font-size: 0.75rem;
-    color: var(--strategy-primary);
-    font-weight: 500;
-  }
-
-  .consultation-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    width: 240px;
-  }
-
-  .consultation-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .consultant-avatar {
-    width: 40px;
-    height: 40px;
-    background: var(--strategy-accent);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-  }
-
-  .consultant-name {
-    font-weight: 600;
-    color: var(--strategy-primary);
-  }
-
-  .consultation-time {
-    font-size: 0.875rem;
-    color: #718096;
-  }
-
-  .consultation-agenda .agenda-item {
-    background: #f7fafc;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--strategy-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  .metrics-dashboard {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    width: 200px;
-  }
-
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .dashboard-title {
-    font-weight: 600;
-    color: var(--strategy-primary);
-    font-size: 0.875rem;
-  }
-
-  .dashboard-period {
-    font-size: 0.75rem;
-    color: #718096;
-  }
-
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .metric-item {
-    text-align: center;
-  }
-
-  .metric-value {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--strategy-accent);
-  }
-
-  .metric-label {
-    font-size: 0.75rem;
-    color: #718096;
-    margin-top: 0.25rem;
-  }
-
-  /* Services Showcase */
-  .services-showcase {
-    padding: 6rem 0;
-    background: #f8fafc;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .section-label {
-    display: inline-block;
-    background: var(--strategy-accent);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-
-  .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--strategy-primary);
-    margin-bottom: 1rem;
-  }
-
-  .section-header p {
-    font-size: 1.125rem;
-    color: #4a5568;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .services-mosaic {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .service-card {
-    background: white;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-  }
-
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  .service-card.featured {
-    grid-row: span 2;
-  }
-
-  .card-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--strategy-gradient);
-  }
-
-  .gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(49, 130, 206, 0.8) 100%);
-  }
-
-  .card-content {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-    height: 100%;
     display: flex;
     flex-direction: column;
   }
 
-  .service-card.featured .card-content {
-    color: white;
-  }
-
-  .service-icon {
-    margin-bottom: 1.5rem;
-  }
-
-  .service-card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--strategy-primary);
-  }
-
-  .service-card.featured h3 {
-    color: white;
-  }
-
-  .service-card p {
-    color: #4a5568;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-  }
-
-  .service-card.featured p {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .service-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .feature-tag {
-    background: rgba(49, 130, 206, 0.1);
-    color: var(--strategy-accent);
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .service-link {
-    color: var(--strategy-accent);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.875rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-  }
-
-  .service-link:hover {
-    color: var(--strategy-primary);
-    gap: 0.75rem;
-  }
-
-  /* Expertise Section */
-  .expertise-section {
-    padding: 6rem 0;
-    background: white;
-  }
-
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .expertise-card {
-    background: #f8fafc;
-    padding: 2rem;
-    border-radius: 1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .expertise-card:hover {
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
-  }
-
-  .expertise-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .expertise-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--strategy-primary);
-    margin-bottom: 1rem;
-  }
-
-  .expertise-card p {
-    color: #4a5568;
-    line-height: 1.6;
-  }
-
-  /* Process Section */
-  .process-section {
-    padding: 6rem 0;
-    background: #f8fafc;
-  }
-
-  .process-timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-
-  .process-step {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    position: relative;
-  }
-
-  .process-step::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: -1px;
-    width: 2px;
-    height: calc(100% - 4rem);
-    background: linear-gradient(to bottom, var(--strategy-accent), transparent);
-  }
-
-  .process-step:last-child::before {
-    display: none;
-  }
-
-  .step-number {
-    background: var(--strategy-accent);
-    color: white;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .step-content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--strategy-primary);
-    margin-bottom: 1rem;
-  }
-
-  .step-content p {
-    color: #4a5568;
-    line-height: 1.6;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    padding: 6rem 0;
-    background: var(--strategy-gradient);
-    color: white;
-  }
-
-  .cta-content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .cta-content h2 {
+  .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #fbb6ce 0%, #d53f8c 100%);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .cta-content p {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-  }
-
-  .cta-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .btn-primary {
-    background: white;
-    color: var(--strategy-primary);
-  }
-
-  .btn-primary:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-
-  .btn-lg {
-    padding: 1.25rem 2.5rem;
-    font-size: 1.125rem;
-  }
-
-  /* Reveal Animation */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: reveal 0.8s ease-out forwards;
-  }
-
-  .reveal:nth-child(2) { animation-delay: 0.2s; }
-  .reveal:nth-child(3) { animation-delay: 0.4s; }
-  .reveal:nth-child(4) { animation-delay: 0.6s; }
-  .reveal:nth-child(5) { animation-delay: 0.8s; }
-  .reveal:nth-child(6) { animation-delay: 1s; }
-
-  @keyframes reveal {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    .services-mosaic {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .service-card.featured {
-      grid-row: span 1;
-    }
-
-    .hero-text h1 {
-      font-size: 2.5rem;
-    }
-
-    .section-header h2 {
-      font-size: 2rem;
-    }
-
-    .cta-content h2 {
-      font-size: 2rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .category-hero {
-      padding: 4rem 0 2rem;
-    }
-
-    .hero-text h1 {
-      font-size: 2rem;
-    }
-
-    .hero-stats {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .strategy-showcase {
-      height: 300px;
-    }
-
-    .services-showcase,
-    .expertise-section,
-    .process-section,
-    .cta-section {
-      padding: 4rem 0;
-    }
-
-    .section-header {
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      font-size: 1.75rem;
-    }
-
-    .expertise-grid,
-    .process-timeline {
-      grid-template-columns: 1fr;
-    }
-
-    .cta-actions {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .btn {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .category-hero {
-      padding: 3rem 0 1rem;
-    }
-
-    .hero-content {
-      gap: 2rem;
-    }
-
-    .hero-text h1 {
-      font-size: 1.75rem;
-    }
-
-    .hero-description {
-      font-size: 1rem;
-    }
-
-    .strategy-showcase {
-      height: 250px;
-    }
-
-    .floating-element {
-      transform: scale(0.8);
-    }
-
-    .strategy-roadmap,
-    .consultation-card,
-    .metrics-dashboard {
-      width: 100%;
-      max-width: 200px;
-    }
-
-    .services-showcase,
-    .expertise-section,
-    .process-section,
-    .cta-section {
-      padding: 3rem 0;
-    }
-
-    .section-header h2 {
-      font-size: 1.5rem;
-    }
-
-    .cta-content h2 {
-      font-size: 1.75rem;
-    }
-  }
-</style>
-
-  <section class="features-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Capabilities</span>
-        <h2>Strategy & Advisory Services</h2>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-          <h3>Digital Strategy</h3>
-          <p>Comprehensive digital transformation roadmaps that align technology initiatives with business objectives.</p>
-          <a href="/services/digital-strategy" class="feature-link">Learn more →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-          <h3>Consulting & Advisory</h3>
-          <p>Expert guidance on digital initiatives, technology adoption, and organizational transformation.</p>
-          <a href="/services/consulting" class="feature-link">Learn more →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Training Programs</h3>
-          <p>Customized training and enablement programs to build digital capabilities across your organization.</p>
-          <a href="/services/training" class="feature-link">Learn more →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
-          <h3>Audits & Reviews</h3>
-          <p>Comprehensive assessments of digital maturity, technology stacks, and strategic alignment.</p>
-          <a href="/services/audits" class="feature-link">Learn more →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="process-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Our Process</span>
-        <h2>Strategy that executes</h2>
-      </div>
-      <div class="process-timeline">
-        <div class="process-step reveal">
-          <div class="step-number">01</div>
-          <div class="step-content">
-            <h3>Discovery</h3>
-            <p>Stakeholder interviews, data analysis, and current-state assessment to understand your challenges and opportunities.</p>
-          </div>
-        </div>
-        <div class="process-step reveal">
-          <div class="step-number">02</div>
-          <div class="step-content">
-            <h3>Analysis</h3>
-            <p>Market research, competitive analysis, and opportunity identification to inform strategic direction.</p>
-          </div>
-        </div>
-        <div class="process-step reveal">
-          <div class="step-number">03</div>
-          <div class="step-content">
-            <h3>Strategy Development</h3>
-            <p>Strategic framework creation, initiative prioritization, and detailed roadmap development.</p>
-          </div>
-        </div>
-        <div class="process-step reveal">
-          <div class="step-number">04</div>
-          <div class="step-content">
-            <h3>Activation Support</h3>
-            <p>Implementation guidance, change management support, and progress tracking for successful execution.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="outcomes-section">
-    <div class="container">
-      <div class="outcomes-grid">
-        <div class="outcomes-content reveal">
-          <span class="section-label">Outcomes</span>
-          <h2>Strategy that delivers</h2>
-          <p>Our strategic engagements create clarity, alignment, and measurable impact that drives sustainable business growth.</p>
-          <ul class="outcomes-list">
-            <li>Clear digital transformation roadmap</li>
-            <li>Aligned stakeholder vision and priorities</li>
-            <li>Prioritized initiative portfolio with measurable outcomes</li>
-            <li>Accelerated time-to-market and competitive advantage</li>
-          </ul>
-        </div>
-        <div class="outcomes-stats reveal">
-          <div class="stat-card">
-            <span class="stat-value">3.4x</span>
-            <span class="stat-label">Average ROI on Strategy</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">92%</span>
-            <span class="stat-label">Initiative Success Rate</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">45%</span>
-            <span class="stat-label">Faster Time to Market</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content reveal">
-        <h2>Ready for <span class="text-gradient">strategic</span> clarity?</h2>
-        <p>Let's build a digital strategy that aligns your technology with your business goals and drives sustainable growth.</p>
-        <a href="/contact" class="btn btn-primary btn-lg">Start Strategic Planning</a>
-      </div>
-    </div>
-  </section>
-</Layout>
-
-<style>
-  .service-hero {
-    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-4xl);
-    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
-  }
-
-  .breadcrumb {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
+  .stat-label {
     font-size: 0.875rem;
-    margin-bottom: var(--space-2xl);
+    color: var(--color-text-secondary);
   }
 
-  .breadcrumb a { color: var(--color-text-light); }
-  .breadcrumb a:hover { color: var(--color-primary); }
-  .breadcrumb span:not(:last-child) { color: var(--color-soft-gray); }
-  .breadcrumb span:last-child { color: var(--color-text); font-weight: 500; }
-
-  .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: var(--space-4xl);
-    align-items: center;
+  /* Services Showcase */
+  .services-showcase {
+    padding: 6rem 0;
+    background: var(--color-bg);
   }
 
-  .service-category {
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-header.center {
+    text-align: center;
+  }
+
+  .section-tag {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+  }
+
+  .section-header.center p {
+    margin: 0 auto;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .service-row {
+    display: flex;
+    align-items: stretch;
+    background: var(--color-bg-secondary);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .service-row:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 40px rgba(255, 87, 87, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .service-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .service-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .service-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 87, 87, 0.1), rgba(255, 152, 0, 0.1));
+    border-radius: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .service-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .service-info {
+    flex: 1;
+  }
+
+  .service-info h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-info p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .service-features li {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .service-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  .service-link {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .service-link:hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-color: transparent;
+    color: white;
+  }
+
+  .service-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  /* Why Choose Section */
+  .why-choose {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .why-content > p {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+
+  .benefit-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+  }
+
+  .testimonial-card {
+    background: var(--color-bg);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    border: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 5rem;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    opacity: 0.3;
+  }
+
+  .testimonial-card blockquote {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-style: italic;
+    margin: 0 0 2rem 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .author-title {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Process Section */
+  .process-section {
+    padding: 6rem 0;
+    background: var(--color-bg);
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step-marker {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    opacity: 0.3;
+    margin-left: 1rem;
+  }
+
+  .step-content h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .step-content p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    position: relative;
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    overflow: hidden;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .cta-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .circle-1 {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    left: -100px;
+  }
+
+  .circle-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    right: -50px;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: white;
     margin-bottom: var(--space-md);
   }
 
-  .hero-text h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    margin-bottom: var(--space-lg);
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    line-height: 1.7;
+  .cta-content p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: var(--space-xl);
+    line-height: 1.7;
   }
 
-  .hero-actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
-
-  .visual-card {
-    background: var(--color-white);
-    border-radius: var(--radius-2xl);
-    padding: var(--space-2xl);
-    box-shadow: var(--shadow-lg);
-    text-align: center;
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .visual-icon { font-size: 4rem; margin-bottom: var(--space-xl); }
-  .visual-stats { display: flex; gap: var(--space-xl); justify-content: center; }
-  .stat { text-align: center; }
-  .stat-value { display: block; font-size: 2rem; font-weight: 800; color: var(--color-primary); }
-  .stat-label { font-size: 0.875rem; color: var(--color-text-light); }
+  .cta-section .btn-primary {
+    background: white;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
 
-  .features-section, .process-section { padding: var(--space-5xl) 0; }
-  .features-section { background: var(--color-white); }
-  .process-section { background: var(--color-cream); }
+  .cta-section .btn-primary:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
 
-  .section-header { text-align: center; margin-bottom: var(--space-3xl); }
-  .section-label { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-primary); margin-bottom: var(--space-md); }
-  .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; }
+  .cta-section .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+  }
 
-  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); max-width: 800px; margin: 0 auto; }
-  .feature-card { padding: var(--space-xl); background: var(--color-cream); border-radius: var(--radius-xl); transition: all var(--transition-base); }
-  .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .feature-icon { font-size: 2rem; margin-bottom: var(--space-md); }
-  .feature-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-sm); }
-  .feature-card p { color: var(--color-text-light); line-height: 1.6; margin-bottom: var(--space-md); }
-  .feature-link { color: var(--color-primary); font-weight: 600; font-size: 0.875rem; text-decoration: none; }
-  .feature-link:hover { text-decoration: underline; }
+  .cta-section .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+  }
 
-  .process-timeline { max-width: 800px; margin: 0 auto; }
-  .process-step { display: flex; gap: var(--space-xl); padding: var(--space-xl) 0; border-bottom: 1px solid var(--color-soft-gray); }
-  .step-number { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--color-primary); flex-shrink: 0; }
-  .step-content h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-sm); }
-  .step-content p { color: var(--color-text-light); line-height: 1.6; }
-
-  .outcomes-section { padding: var(--space-5xl) 0; background: var(--color-text); color: var(--color-white); }
-  .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
-  .outcomes-section .section-label { color: var(--color-primary); }
-  .outcomes-content h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: var(--space-lg); }
-  .outcomes-content p { color: rgba(255,255,255,0.7); margin-bottom: var(--space-xl); font-size: 1.125rem; }
-  .outcomes-list { list-style: none; }
-  .outcomes-list li { padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: rgba(255,255,255,0.8); }
-  .outcomes-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
-  .outcomes-stats { display: grid; gap: var(--space-lg); }
-  .stat-card { padding: var(--space-xl); background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,0.1); }
-  .stat-card .stat-value { font-size: 2.5rem; font-weight: 800; background: var(--gradient-warm); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .stat-card .stat-label { display: block; margin-top: var(--space-sm); color: rgba(255,255,255,0.6); }
-
-  .cta-section { padding: var(--space-5xl) 0; background: var(--color-cream); text-align: center; }
-  .cta-content h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: var(--space-md); }
-  .cta-content p { color: var(--color-text-light); font-size: 1.125rem; margin-bottom: var(--space-xl); max-width: 600px; margin-inline: auto; }
-
+  /* Responsive Design */
   @media (max-width: 1024px) {
-    .hero-content, .outcomes-grid { grid-template-columns: 1fr; }
-    .hero-visual { order: -1; }
-    .features-grid { grid-template-columns: 1fr; }
+    .why-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .process-timeline {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .step-line {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
-    .hero-actions { flex-direction: column; }
-    .process-step { flex-direction: column; gap: var(--space-md); }
+    .category-hero {
+      padding: 6rem 0 4rem;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .service-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .service-link {
+      align-self: flex-start;
+    }
+
+    .process-timeline {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .process-step {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+
+    .step-marker {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+
+    .step-line {
+      display: block;
+      width: 2px;
+      height: 100%;
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-row {
+      flex-direction: column;
+    }
+
+    .service-number {
+      min-width: 100%;
+      padding: 1rem;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .stat {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* Dark Mode Adjustments */
+  html[data-theme="dark"] .service-row {
+    background: var(--color-bg-secondary);
+  }
+
+  html[data-theme="dark"] .testimonial-card {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  html[data-theme="dark"] .service-icon {
+    background: linear-gradient(135deg, rgba(255, 87, 87, 0.15), rgba(255, 152, 0, 0.15));
+  }
+
+  html[data-theme="dark"] .orb-1,
+  html[data-theme="dark"] .orb-2 {
+    opacity: 0.2;
   }
 </style>
